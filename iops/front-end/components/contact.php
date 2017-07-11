@@ -19,7 +19,6 @@
                     <div class="contact-det">
                         <p>3. <span>address</span></p>
                         <h6>kralja milutina 325</h6>
-                        <h6>11000 belgrade, serbia</h6>
                     </div>
                 </div>
             </div>
