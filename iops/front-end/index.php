@@ -72,19 +72,19 @@
                     <a href="#countries">Countries</a>
                 </li>
                 <li>
-                    <a href="#concepts">News</a>
+                    <a href="#news">News</a>
                 </li>
                 <li>
-                    <a href="#concepts">Rules</a>
+                    <a href="#rules">Rules</a>
                 </li>
                 <li>
-                    <a href="#concepts">Events</a>
+                    <a href="#events">Events</a>
                 </li>
                 <li>
-                    <a href="#features">International Committee</a>
+                    <a href="#international-commitee">International Committee</a>
                 </li>
                 <li>
-                    <a href="#contact-us">Contact Us</a>
+                    <a href="#contact">Contact Us</a>
                 </li>
             </ul>
         </div>
@@ -123,11 +123,36 @@
     <!-- END Countries SECTION-->
 
 
-    <!--Countries SECTION-->
+    <!--News SECTION-->
     <?php
     include("components/news.php");
     ?>
-    <!-- END Countries SECTION-->
+    <!-- END News SECTION-->
+
+    <!--Rules SECTION-->
+    <?php
+    include("components/rules.php");
+    ?>
+    <!-- END Rules SECTION-->
+
+    <!--Events SECTION-->
+    <?php
+    include("components/events.php");
+    ?>
+    <!-- END Events SECTION-->
+
+    <!--Commitee SECTION-->
+    <?php
+    include("components/international-commitee.php");
+    ?>
+    <!-- END Commitee SECTION-->
+
+    <!--Contact SECTION-->
+    <?php
+    include("components/contact.php");
+    ?>
+    <!-- END Contact SECTION-->
+
 
     <!-- JAVASCRIPT
     ================================================== -->

@@ -65,6 +65,13 @@
 
         /* Portfolio Sorting */
 
+        //Full Accordion
+
+        $(".accordion").smk_Accordion({
+            closeAble: true
+        });
+
+
         (function ($) {
 
 
