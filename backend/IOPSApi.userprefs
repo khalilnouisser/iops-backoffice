@@ -1,0 +1,21 @@
+﻿<Properties StartupConfiguration="{2C494D0C-020C-46F7-9B55-C2789BB4F456}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
+  <MonoDevelop.Ide.Workbench ActiveDocument="IOPSApi/Controllers/CountryController.cs">
+    <Files>
+      <File FileName="IOPSApi/Controllers/NewsController.cs" Line="29" Column="59" />
+      <File FileName="IOPSApi/Controllers/ContinentController.cs" Line="30" Column="59" />
+      <File FileName="IOPSApi/Models/Continent.cs" Line="8" Column="14" />
+      <File FileName="IOPSApi/Models/Country.cs" Line="11" Column="33" />
+      <File FileName="IOPSApi/Startup.cs" Line="64" Column="26" />
+      <File FileName="IOPSApi/Controllers/AdminController.cs" Line="51" Column="81" />
+      <File FileName="IOPSApi/Controllers/ContextController.cs" Line="28" Column="59" />
+      <File FileName="IOPSApi/Controllers/CountryController.cs" Line="27" Column="53" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.IOPSApi PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
