@@ -1393,7 +1393,7 @@ svg * {
 
 .team-wrap .img {
     width: 100%;
-    height:330px;
+    height: 330px;
     display: block;
     background-size: cover;
     -webkit-transition: all 300ms linear;
@@ -1402,20 +1402,20 @@ svg * {
     -ms-transition: all 300ms linear;
     transition: all 300ms linear;
 }
-@media screen and (max-width: 1200px)
-{
+
+@media screen and (max-width: 1200px) {
     .team-wrap .img {
         height: 255px;
     }
 }
-@media screen and (max-width: 950px)
-{
+
+@media screen and (max-width: 950px) {
     .team-wrap .img {
         height: 200px;
     }
 }
-@media screen and (max-width: 768px)
-{
+
+@media screen and (max-width: 768px) {
     .team-wrap .img {
         height: 500px;
     }
@@ -3657,9 +3657,11 @@ animated buttons - animate the text inside prev and next buttons
 .contact-det:nth-of-type(3) {
     background-color: #101010;
 }
-.contact-det a{
+
+.contact-det a {
     color: white;
 }
+
 .contact-det p {
     position: relative;
     text-align: left;
@@ -4863,12 +4865,12 @@ animated buttons - animate the text inside prev and next buttons
 .news-title {
     font-size: 10em;
 }
-#news .container
-{
-    height:100% !important;
 
+#news .container {
+    height: 100% !important;
 
 }
+
 .news-carousel-wrap {
     position: relative;
     width: 100%;
@@ -4947,8 +4949,8 @@ animated buttons - animate the text inside prev and next buttons
 .news-text {
     position: absolute;
     width: 100%;
-    height:80%;
-    top:0;
+    height: 80%;
+    top: 0;
     left: 0;
     z-index: 10;
     padding: 15px;
@@ -4976,24 +4978,25 @@ animated buttons - animate the text inside prev and next buttons
     top: 0;
     right: 0;
 }
-#news .container .twelve.columns
-{
+
+#news .container .twelve.columns {
     -webkit-transform: translateY(30%);
     -moz-transform: translateY(30%);
     -ms-transform: translateY(30%);
     -o-transform: translateY(30%);
     transform: translateY(30%);
 }
-@media screen and (max-width: 1300px)
-{
+
+@media screen and (max-width: 1300px) {
     .news-text h1 {
-        width:40%;
+        width: 40%;
     }
+
     .news-text p {
-        width:60%;
+        width: 60%;
     }
-    #news .container .twelve.columns
-    {
+
+    #news .container .twelve.columns {
         -webkit-transform: translateY(20%);
         -moz-transform: translateY(20%);
         -ms-transform: translateY(20%);
@@ -5002,8 +5005,8 @@ animated buttons - animate the text inside prev and next buttons
     }
 
 }
-@media screen and (max-width: 1000px)
-{
+
+@media screen and (max-width: 1000px) {
     .news-text h1 {
         font-size: 35px;
         line-height: 40px;
@@ -5025,10 +5028,9 @@ animated buttons - animate the text inside prev and next buttons
 
     }
 }
-@media screen and (max-width: 768px)
-{
-    #news .container .twelve.columns
-    {
+
+@media screen and (max-width: 768px) {
+    #news .container .twelve.columns {
         -webkit-transform: translateY(0);
         -moz-transform: translateY(0);
         -ms-transform: translateY(0);
@@ -5036,10 +5038,10 @@ animated buttons - animate the text inside prev and next buttons
         transform: translateY(0);
     }
 
-    .news-text
-    {
+    .news-text {
         height: 90%;
     }
+
     .news-text h1 {
         font-size: 20px;
         line-height: 30px;
@@ -5059,8 +5061,8 @@ animated buttons - animate the text inside prev and next buttons
         overflow-y: visible;
 
     }
-    #news .container
-    {
+
+    #news .container {
         width: 100% !important;
         overflow-y: scroll;
 
@@ -5080,39 +5082,39 @@ animated buttons - animate the text inside prev and next buttons
     z-index: 10;
 }
 
-
-
 /* #FAQ
 ================================================== */
 
-#rules .title-text-main h1
-{
+#rules .title-text-main h1 {
     color: black;
 }
+
 .smk_accordion {
     position: relative;
     margin: 0;
     padding: 0;
     list-style: none;
 }
+
 .smk_accordion .accordion_in {
     position: relative;
     z-index: 10;
     margin-top: -1px;
     overflow: hidden;
-    margin-bottom:2px;
+    margin-bottom: 2px;
 }
+
 .smk_accordion .accordion_in .acc_head {
     position: relative;
     padding: 15px;
-    text-align:left;
-    background:#fafafa;
+    text-align: left;
+    background: #fafafa;
     font-family: 'Poppins', sans-serif;
-    font-weight:500;
+    font-weight: 500;
     font-size: 14px;
-    line-height:20px;
+    line-height: 20px;
     color: #414141;
-    letter-spacing:1px;
+    letter-spacing: 1px;
     display: block;
     cursor: pointer;
     -webkit-transition: all 300ms linear;
@@ -5121,12 +5123,15 @@ animated buttons - animate the text inside prev and next buttons
     -ms-transition: all 300ms linear;
     transition: all 300ms linear;
 }
+
 .smk_accordion .accordion_in .acc_head:hover {
-    color:#fff;
+    color: #fff;
 }
+
 .smk_accordion .accordion_in.acc_active > .acc_head {
-    color:#fff;
+    color: #fff;
 }
+
 .smk_accordion .accordion_in .acc_head .acc_icon_expand {
     display: block;
     width: 20px;
@@ -5135,37 +5140,41 @@ animated buttons - animate the text inside prev and next buttons
     right: 20px;
     top: 50%;
     margin-top: -10px;
-    background: url('../images/acc1.png')no-repeat center center;
-    background-size:20px 20px;
+    background: url('../images/acc1.png') no-repeat center center;
+    background-size: 20px 20px;
     -webkit-transition: all 300ms linear;
     -moz-transition: all 300ms linear;
     -o-transition: all 300ms linear;
     -ms-transition: all 300ms linear;
     transition: all 300ms linear;
 }
+
 .smk_accordion .accordion_in .acc_head:hover .acc_icon_expand {
-    background: url('../images/acc2.png')no-repeat center center;
-    background-size:20px 20px;
+    background: url('../images/acc2.png') no-repeat center center;
+    background-size: 20px 20px;
     -webkit-transition: all 300ms linear;
     -moz-transition: all 300ms linear;
     -o-transition: all 300ms linear;
     -ms-transition: all 300ms linear;
     transition: all 300ms linear;
 }
+
 .smk_accordion .accordion_in.acc_active > .acc_head .acc_icon_expand {
-    background: url('../images/acc3.png')no-repeat center center;
-    background-size:20px 20px;
+    background: url('../images/acc3.png') no-repeat center center;
+    background-size: 20px 20px;
     -webkit-transition: all 300ms linear;
     -moz-transition: all 300ms linear;
     -o-transition: all 300ms linear;
     -ms-transition: all 300ms linear;
     transition: all 300ms linear;
 }
+
 .smk_accordion .accordion_in .acc_content {
-    color:#606060;
-    padding:30px;
-    background:#f2f2f2;
+    color: #606060;
+    padding: 30px;
+    background: #f2f2f2;
 }
+
 .smk_accordion .accordion_in .acc_content h1:first-of-type,
 .smk_accordion .accordion_in .acc_content h2:first-of-type,
 .smk_accordion .accordion_in .acc_content h3:first-of-type,
@@ -5174,15 +5183,19 @@ animated buttons - animate the text inside prev and next buttons
 .smk_accordion .accordion_in .acc_content h6:first-of-type {
     margin-top: 5px;
 }
+
 .smk_accordion .accordion_in:first-of-type,
 .smk_accordion .accordion_in:first-of-type .acc_head {
 }
+
 .smk_accordion .accordion_in:last-of-type,
 .smk_accordion .accordion_in:last-of-type .acc_content {
 }
+
 .smk_accordion .accordion_in.acc_active > .acc_content {
     display: block;
 }
+
 .smk_accordion.acc_with_icon .accordion_in .acc_head,
 .smk_accordion.acc_with_icon .accordion_in .acc_content {
     padding-left: 40px;
@@ -5192,10 +5205,82 @@ animated buttons - animate the text inside prev and next buttons
     color: white;
     margin-top: 30px;
 }
+
 #events .title-text {
     padding-bottom: 30px;
 }
 
+.blocker {
+    z-index: 500 !important;
+}
 
+.modal {
+    text-align: center;
+}
 
+.country-flag {
+    width: 70%;
+    width: 70%;
+}
 
+.country-name {
+    width: 70%;
+    margin: -5px auto 15px;
+    background: black;
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 22px;
+    padding: 10px;
+}
+
+.country-description {
+    text-align: left;
+
+}
+
+.country-description h6, .country-commitee h6, .country-website h6 {
+    margin-top: 15px;
+    /*display: inline;*/
+}
+
+.country-website img {
+    width: 50px;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+}
+
+.country-website a:hover img {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.country-website a {
+    color: #000;
+    text-decoration: none;
+    display: inline-block;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.country-website a:hover {
+    -webkit-transform: scale(1.1, 1.1) translateY(5px);
+    -moz-transform: scale(1.1, 1.1) translateY(5px);
+    -ms-transform: scale(1.1, 1.1) translateY(5px);
+    -o-transform: scale(1.1, 1.1) translateY(5px);
+    transform: scale(1.1, 1.1) translateY(5px);
+    color: #d29212;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}

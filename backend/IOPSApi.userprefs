@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{2C494D0C-020C-46F7-9B55-C2789BB4F456}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
-  <MonoDevelop.Ide.Workbench ActiveDocument="IOPSApi/Controllers/CountryController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="IOPSApi/Models/User.cs">
     <Files>
       <File FileName="IOPSApi/Controllers/NewsController.cs" Line="29" Column="59" />
       <File FileName="IOPSApi/Controllers/ContinentController.cs" Line="30" Column="59" />
@@ -9,6 +9,13 @@
       <File FileName="IOPSApi/Controllers/AdminController.cs" Line="51" Column="81" />
       <File FileName="IOPSApi/Controllers/ContextController.cs" Line="28" Column="59" />
       <File FileName="IOPSApi/Controllers/CountryController.cs" Line="27" Column="53" />
+      <File FileName="IOPSApi/Models/Admin.cs" Line="1" Column="1" />
+      <File FileName="IOPSApi/Models/Context.cs" Line="1" Column="1" />
+      <File FileName="IOPSApi/Models/Event.cs" Line="22" Column="1" />
+      <File FileName="IOPSApi/Models/Inscription.cs" Line="18" Column="65" />
+      <File FileName="IOPSApi/Models/Messages.cs" Line="26" Column="55" />
+      <File FileName="IOPSApi/Models/News.cs" Line="13" Column="64" />
+      <File FileName="IOPSApi/Models/User.cs" Line="18" Column="63" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

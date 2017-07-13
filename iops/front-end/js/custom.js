@@ -1,11 +1,12 @@
-(function($) { "use strict";
+(function ($) {
+    "use strict";
 
 
     //Navigation
 
-    $('ul.slimmenu').on('click',function(){
+    $('ul.slimmenu').on('click', function () {
         var width = $(window).width();
-        if ((width <= 1200)){
+        if ((width <= 1200)) {
             $(this).slideToggle();
         }
     });
@@ -13,8 +14,8 @@
         {
             resizeWidth: '1200',
             collapserTitle: '',
-            easingEffect:'easeInOutQuint',
-            animSpeed:'medium',
+            easingEffect: 'easeInOutQuint',
+            animSpeed: 'medium',
             indentChildren: true,
             childrenIndenter: '&raquo;'
         });
@@ -33,31 +34,30 @@
         });
     });
 
-	/* Scroll Too */
+    /* Scroll Too */
 
-    $(window).load(function(){"use strict";
+    $(window).load(function () {
+        "use strict";
 
-		/* Page Scroll to id fn call */
+        /* Page Scroll to id fn call */
         $("ul.slimmenu li a,a[href='#top'],a[data-gal='m_PageScroll2id']").mPageScroll2id({
-            highlightSelector:"ul.slimmenu li a",
+            highlightSelector: "ul.slimmenu li a",
             offset: 78,
-            scrollSpeed:800,
+            scrollSpeed: 800,
             scrollEasing: "easeInOutCubic"
         });
 
-		/* demo functions */
-        $("a[rel='next']").click(function(e){
+        /* demo functions */
+        $("a[rel='next']").click(function (e) {
             e.preventDefault();
-            var to=$(this).parent().parent("section").next().attr("id");
-            $.mPageScroll2id("scrollTo",to);
+            var to = $(this).parent().parent("section").next().attr("id");
+            $.mPageScroll2id("scrollTo", to);
         });
 
     });
 
 
-
-
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         //Tooltip
 
@@ -70,6 +70,17 @@
         $(".accordion").smk_Accordion({
             closeAble: true
         });
+
+        //country
+
+        $('a[data-modal]').click(function (event) {
+            $(this).attr('href','components/countryDetail.php?countryID='+$(this).attr('data-country'));
+            $(this).modal();
+            $(this).attr('href','');
+            return false;
+        });
+
+
 
 
         (function ($) {
@@ -112,8 +123,8 @@
                 $(this).parent().parent().find('a').removeClass('current');
                 $(this).addClass('current');
 
-                container.isotope( {
-                    filter : selector
+                container.isotope({
+                    filter: selector
                 });
 
                 setTimeout(function () {
@@ -129,7 +140,7 @@
                 try {
                     container.isotope('reLayout');
                 }
-                catch(err) {
+                catch (err) {
 
                 }
 
@@ -140,29 +151,26 @@
                 setColumnWidth();
 
 
-                container.isotope( {
-                    itemSelector : '.portfolio-box-1',
-                    layoutMode : 'masonry',
-                    resizable : false
-                } );
-            } );
-
-
-
+                container.isotope({
+                    itemSelector: '.portfolio-box-1',
+                    layoutMode: 'masonry',
+                    resizable: false
+                });
+            });
 
 
             $(window).on('resize', function () {
                 reArrangeProjects();
 
-            } );
+            });
             /*
-            $(window).on('scroll', function () {
-                reArrangeProjects();
+             $(window).on('scroll', function () {
+             reArrangeProjects();
 
-            } );*/
+             } );*/
 
 
-        } )(jQuery);
+        })(jQuery);
 
         //Parallax
 
@@ -171,24 +179,7 @@
         $('.parallax-2').parallax("50%", 0.4);
 
 
-
-
-
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     //Home Carousel
@@ -197,72 +188,72 @@
     var sync2 = $("#sync2");
 
     sync1.owlCarousel({
-        singleItem : true,
+        singleItem: true,
         autoPlay: 5000,
-        transitionStyle : "fade",
-        autoHeight : false,
-        slideSpeed : 200,
+        transitionStyle: "fade",
+        autoHeight: false,
+        slideSpeed: 200,
         navigation: false,
-        pagination:false,
-        afterAction : syncPosition,
-        responsiveRefreshRate : 200
+        pagination: false,
+        afterAction: syncPosition,
+        responsiveRefreshRate: 200
     });
 
 
     sync2.owlCarousel({
-        items : 3,
-        itemsDesktop      : [1199,3],
-        itemsDesktopSmall     : [979,3],
-        itemsTablet       : [768,3],
-        itemsMobile       : [479,3],
-        pagination:false,
-        responsiveRefreshRate : 100,
-        afterInit : function(el){
+        items: 3,
+        itemsDesktop: [1199, 3],
+        itemsDesktopSmall: [979, 3],
+        itemsTablet: [768, 3],
+        itemsMobile: [479, 3],
+        pagination: false,
+        responsiveRefreshRate: 100,
+        afterInit: function (el) {
             el.find(".owl-item").eq(0).addClass("synced");
         }
     });
 
-    function syncPosition(el){
+    function syncPosition(el) {
         var current = this.currentItem;
         $("#sync2")
             .find(".owl-item")
             .removeClass("synced")
             .eq(current)
             .addClass("synced")
-        if($("#sync2").data("owlCarousel") !== undefined){
+        if ($("#sync2").data("owlCarousel") !== undefined) {
             center(current)
         }
     }
 
-    $("#sync2").on("click", ".owl-item", function(e){
+    $("#sync2").on("click", ".owl-item", function (e) {
         e.preventDefault();
         var number = $(this).data("owlItem");
-        sync1.trigger("owl.goTo",number);
+        sync1.trigger("owl.goTo", number);
     });
 
-    function center(number){
+    function center(number) {
         var sync2visible = sync2.data("owlCarousel").owl.visibleItems;
         var num = number;
         var found = false;
-        for(var i in sync2visible){
-            if(num === sync2visible[i]){
+        for (var i in sync2visible) {
+            if (num === sync2visible[i]) {
                 var found = true;
             }
         }
 
-        if(found===false){
-            if(num>sync2visible[sync2visible.length-1]){
-                sync2.trigger("owl.goTo", num - sync2visible.length+2)
-            }else{
-                if(num - 1 === -1){
+        if (found === false) {
+            if (num > sync2visible[sync2visible.length - 1]) {
+                sync2.trigger("owl.goTo", num - sync2visible.length + 2)
+            } else {
+                if (num - 1 === -1) {
                     num = 0;
                 }
                 sync2.trigger("owl.goTo", num);
             }
-        } else if(num === sync2visible[sync2visible.length-1]){
+        } else if (num === sync2visible[sync2visible.length - 1]) {
             sync2.trigger("owl.goTo", sync2visible[1])
-        } else if(num === sync2visible[0]){
-            sync2.trigger("owl.goTo", num-1)
+        } else if (num === sync2visible[0]) {
+            sync2.trigger("owl.goTo", num - 1)
         }
 
     }

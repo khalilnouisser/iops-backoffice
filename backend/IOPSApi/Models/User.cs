@@ -15,7 +15,7 @@ namespace IOPSApi.Models
 		public string EmailAdress { get; set; }
 		[Required] 
 		public string Password { get; set; }
-		public DateTime DateCreation { get; set; }
+		public DateTime DateCreation { get; set; } = new DateTime();
 		[Url]
         public string ProfilePic { get; set; }
 	}  

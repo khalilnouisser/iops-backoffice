@@ -22895,10 +22895,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/khalilnouisser/Desktop/Projects/iops-tops-core/IOPSApi/IOPSApi.csproj",
+      "projectUniqueName": "/Users/khalilnouisser/Desktop/Projects/iops-tops/backend/IOPSApi/IOPSApi.csproj",
       "projectName": "IOPSApi",
-      "projectPath": "/Users/khalilnouisser/Desktop/Projects/iops-tops-core/IOPSApi/IOPSApi.csproj",
-      "outputPath": "/Users/khalilnouisser/Desktop/Projects/iops-tops-core/IOPSApi/obj",
+      "projectPath": "/Users/khalilnouisser/Desktop/Projects/iops-tops/backend/IOPSApi/IOPSApi.csproj",
+      "outputPath": "/Users/khalilnouisser/Desktop/Projects/iops-tops/backend/IOPSApi/obj",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"

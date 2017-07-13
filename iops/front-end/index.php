@@ -21,6 +21,7 @@
 
     <!-- CSS
   ================================================== -->
+    <link rel="stylesheet" href="js/jquery-modal-master/jquery.modal.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/skeleton.css"/>
     <link rel="stylesheet" href="css/layout.css"/>
@@ -35,8 +36,7 @@
     <link rel="stylesheet" href="css/layers.css"/>
     <link rel="stylesheet" href="css/navigation.css"/>
 
-    <link rel="stylesheet" href="css/vex.css" />
-    <link rel="stylesheet" href="css/vex-theme-flat-attack.css" />
+
 
 
     <!-- Favicons
@@ -158,6 +158,7 @@
     ================================================== -->
     <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
     <script type="text/javascript" src="js/royal_preloader.min.js"></script>
+    <script src="js/jquery-modal-master/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
         (function ($) {
             "use strict";
@@ -182,8 +183,7 @@
     <script type="text/javascript" src="js/custom.js"></script>
     <script type="text/javascript" src="js/masonry.js"></script>
     <script type="text/javascript" src="js/isotope.js"></script>
-    <script src="js/vex.combined.min.js"></script>
-    <script>vex.defaultOptions.className = 'vex-theme-flat-attack'</script>
+
     <!-- REVOLUTION JS FILES -->
     <script type="text/javascript" src="js/jquery.themepunch.tools.min.js"></script>
     <script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script>
