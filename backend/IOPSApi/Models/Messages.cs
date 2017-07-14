@@ -23,7 +23,11 @@ namespace IOPSApi.Models
 		[MinLength(2)]
         public string Name { get; set; }
 
+<<<<<<< HEAD
+		public DateTime? DateMessage { get; set; }
+=======
 		public DateTime Date { get; set; } = new DateTime();
+>>>>>>> 4b0389fc64b3e261991c0b67f54501c498a5157b
 
 
 		public string CountryID { get; set; }  

@@ -11,7 +11,7 @@ namespace IOPSApi.Models
         public string Name { get; set; }
         [Url]
         [Required]
-        public string SiteURL { get; set; }
+        public string SiteURL { get; set; } 
 
         public string Description { get; set; }
 

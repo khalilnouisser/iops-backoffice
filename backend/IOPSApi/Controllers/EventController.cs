@@ -27,7 +27,7 @@ namespace IOPSApi.Controllers
 		[HttpPost("Event/{countryID}")]
         public async Task<IActionResult> PostNew([FromBody]Event e, string countryID = "")
 		{
-			e.Date = DateTime.Now;
+			e.DateEvent = DateTime.Now;
 
 			dynamic response = new ExpandoObject();
 			if (ModelState.IsValid)
@@ -59,7 +59,7 @@ namespace IOPSApi.Controllers
 		public async Task<IActionResult> PostNew([FromBody]Event e)
 		{
             string countryID = "";
-			e.Date = DateTime.Now;
+			e.DateEvent = DateTime.Now;
 
 			dynamic response = new ExpandoObject();
 			if (ModelState.IsValid)

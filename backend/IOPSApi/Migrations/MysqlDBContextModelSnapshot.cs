@@ -67,7 +67,7 @@ namespace IOPSApi.Migrations
 
                     b.Property<string>("CountryID");
 
-                    b.Property<DateTime>("Date");
+                    b.Property<DateTime?>("Date");
 
                     b.Property<string>("Descriptions")
                         .IsRequired();
@@ -96,7 +96,7 @@ namespace IOPSApi.Migrations
                     b.Property<string>("CountryID")
                         .IsRequired();
 
-                    b.Property<DateTime>("DateInsc");
+                    b.Property<DateTime?>("DateInsc");
 
                     b.Property<string>("EmailAdress")
                         .IsRequired();
@@ -128,7 +128,7 @@ namespace IOPSApi.Migrations
 
                     b.Property<string>("CountryID");
 
-                    b.Property<DateTime>("Date");
+                    b.Property<DateTime?>("Date");
 
                     b.Property<string>("EmailAddress")
                         .IsRequired();
@@ -150,7 +150,7 @@ namespace IOPSApi.Migrations
                     b.Property<int>("NewsID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("DatePub");
+                    b.Property<DateTime?>("DatePub");
 
                     b.Property<string>("PhotoURL");
 
@@ -168,7 +168,7 @@ namespace IOPSApi.Migrations
                     b.Property<int>("UserID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("DateCreation");
+                    b.Property<DateTime?>("DateCreation");
 
                     b.Property<string>("Discriminator")
                         .IsRequired();
