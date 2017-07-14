@@ -1,4 +1,34 @@
 <?php
+
+//ws requires 'input' field as GET parameter
+$ws_url = 'http://localhost:5000/api/Event';
+$curl = curl_init($ws_url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+$curl_response = curl_exec($curl);
+$error = false;
+// in case of error while retrieving data
+if ($curl_response === false) {
+    $info = curl_getinfo($curl);
+    curl_close($curl);
+    $error=true;
+}
+if(!$error)
+{
+
+    curl_close($curl);
+
+    $decoded = json_decode($curl_response);
+
+    if($decoded->status)
+    {
+        $events=$decoded->extra->events;
+    }
+    else
+    {
+        $error=true;
+    }
+}
+/*
 $events = array(
     array(
         "title" => "Event 1",
@@ -24,7 +54,7 @@ $events = array(
         "imageURL" => "images/events/4.jpg",
         "date" => "13.04.19"
     )
-)
+)*/
 ?>
 <div id="events">
     <div class="section z-big back-black">
@@ -41,27 +71,35 @@ $events = array(
     <div>
         <div class="section padding-top-small padding-bottom-small">
             <div class="container">
+
                 <?php
-                foreach ($events as $event => $key):
-                ?>
-                    <?php
-                    if(!$event%2 && $event>0)
-                        echo '<div class="clear"></div>';
-                    ?>
-                <div class="six columns" data-scroll-reveal="enter bottom move 50px over 0.7s after 0.3s">
-                    <div class="journal-wrap">
-                        <img src="<?= $key['imageURL']?>" alt=""/>
-                        <div class="journal-det">
-                            <h6><?= $key['description']?> <span><?= $key['date']?></span></h6>
-                            <h5><?= $key['title']?></h5>
-                            <a href="#">
-                                <div class="link">read more</div>
-                            </a>
+                if(!$error)
+                    foreach ($events as $event => $key):
+
+                        ?>
+                        <?php
+                        if(!$event%2 && $event>0)
+                            echo '<div class="clear"></div>';
+                        ?>
+
+                        <div class="six columns" data-scroll-reveal="enter bottom move 50px over 0.7s after 0.3s">
+                            <div class="journal-wrap">
+                                <img src="<?= 'images/events/'.$key->imageURL?>" alt=""/>
+                                <div class="journal-det">
+                                    <h6><?= $key->descriptions?> <span><?= $key->date?></span></h6>
+                                    <h5><?= $key->title?></h5>
+                                    <!--a href="#">
+                                        <div class="link">read more</div>
+                                    </a-->
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <?php
-                endforeach;
+                        <?php
+                    endforeach;
+                else
+                {
+                    echo "Error while retrieving events <br>Please report this error by <a href='#contact'>contacting us.</a><br>Thank you !";
+                }
                 ?>
 
 

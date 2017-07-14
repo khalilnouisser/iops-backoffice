@@ -1,5 +1,4 @@
 
-<?php header('Access-Control-Allow-Origin: *'); ?>
 <div class="section back-black" id="subscription">
 
         <div class="twelve columns">
@@ -15,68 +14,68 @@
 
                     <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="fname">
-                            <span class="error" id="err-name">please enter first name</span>
+                            <span class="error" id="err-fname">please enter first name</span>
                         </label>
-                        <input name="fname" id="fname" type="text" placeholder="Your First Name :*"/>
+                        <input name="fname" id="fname" type="text" placeholder="Your First Name :*" required/>
                     </div>
 
                     <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="lname">
-                            <span class="error" id="err-name">please enter last name</span>
+                            <span class="error" id="err-lname">please enter last name</span>
                         </label>
-                        <input name="lname" id="lname" type="text" placeholder="Your Last Name :*"/>
+                        <input name="lname" id="lname" type="text" placeholder="Your Last Name :*" required/>
                     </div>
 
                     <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="uname">
-                            <span class="error" id="err-name">please enter username</span>
+                            <span class="error" id="err-uname">please enter username</span>
                         </label>
-                        <input name="uname" id="uname" type="text" placeholder="Username :*"/>
+                        <input name="uname" id="uname" type="text" placeholder="Username :*" required/>
                     </div>
 
                     <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="email">
-                            <span class="error" id="err-name">please enter valid email</span>
+                            <span class="error" id="err-email">please enter valid email</span>
                         </label>
-                        <input name="email" id="email" type="email" placeholder="Email :*"/>
+                        <input name="email" id="email" type="email" placeholder="Email :*" required/>
                     </div>
 
                     <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="email">
-                            <span class="error" id="err-name">please enter a valid password (+8 characters)</span>
+                            <span class="error" id="err-password1">please enter a valid password (+8 characters)</span>
                         </label>
-                        <input name="password1" id="password1" type="password" placeholder="Password (+8 characters)"/>
+                        <input name="password1" id="password1" type="password" placeholder="Password (+8 characters)" required/>
                     </div>
 
                     <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="email">
-                            <span class="error" id="err-name">passwords don't match</span>
+                            <span class="error" id="err-password2">passwords don't match</span>
                         </label>
-                        <input name="password2" id="password2" type="password" placeholder="Retype your password"/>
+                        <input name="password2" id="password2" type="password" placeholder="Retype your password" required/>
                     </div>
 
                     <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="birthday">
-                            <span class="error" id="err-name">your date is invalids</span>
+                            <span class="error" id="err-birthday">your date is invalid</span>
                         </label>
-                        <input name="birthday" id="birthday" type="date" placeholder="Birthday"/>
+                        <input name="birthday" id="birthday" type="date" placeholder="Birthday" required/>
                     </div>
 
                     <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="institut">
-                            <span class="error" id="err-name">please enter a valid institution name</span>
+                            <span class="error" id="err-institut">please enter a valid institution name</span>
                         </label>
-                        <input name="institut" id="institut" type="text" placeholder="Where are you studying ?"/>
+                        <input name="institut" id="institut" type="text" placeholder="Where are you studying ?" required/>
                     </div>
                     <br>
                     <br>
 
                     <div class="six columns picture-upload" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="pic">
-                            <span class="error" id="err-name">your date is invalids</span>
+                            <span class="error" id="err-pic">your file is invalid</span>
                         </label>
-                        <span>Please upload a proof of identity<br>(student card)</span>
-                        <input name="pic" id="pic" type="file" placeholder=""/>
+                        <span>Please upload a proof of identity<br>(student card) [max 8MB]</span>
+                        <input name="pic" id="pic" type="file" placeholder="" accept="image/*" required/>
                     </div>
 
                     <div class="six columns recaptcha" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">

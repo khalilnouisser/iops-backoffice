@@ -9,14 +9,6 @@ $commitee = array(
         "poste" => "Commitee member"
     ),
     array(
-        "name" => "Ahmed BOUHOULA",
-        "bio" => "Lorem ipsum dolor sit amet, usu diam patrioque ea. Eu sed graece officiis definitionem, 
-                    id eam atqui debitis molestie, inani semper pericula at pri. 
-                    An mel minimum indoctum, persius corpora usu ad, usu tritani consulatu instructior ei.",
-        "imageURL" => "images/commitee/Ahmed_BOUHOULA.jpg",
-        "poste" => "Commitee member"
-    ),
-    array(
         "name" => "Adel BOUHOULA",
         "bio" => "Lorem ipsum dolor sit amet, usu diam patrioque ea. Eu sed graece officiis definitionem, 
                     id eam atqui debitis molestie, inani semper pericula at pri. 
@@ -25,11 +17,19 @@ $commitee = array(
         "poste" => "Commitee member"
     ),
     array(
-        "name" => "Ahmed BOUHOULA",
+        "name" => "Atef MASMOUDI",
         "bio" => "Lorem ipsum dolor sit amet, usu diam patrioque ea. Eu sed graece officiis definitionem, 
                     id eam atqui debitis molestie, inani semper pericula at pri. 
                     An mel minimum indoctum, persius corpora usu ad, usu tritani consulatu instructior ei.",
-        "imageURL" => "images/commitee/Ahmed_BOUHOULA.jpg",
+        "imageURL" => "images/commitee/masmoudi_atef.jpg",
+        "poste" => "Commitee member"
+    ),
+    array(
+        "name" => "Oussama BEN ALAYA",
+        "bio" => "Lorem ipsum dolor sit amet, usu diam patrioque ea. Eu sed graece officiis definitionem, 
+                    id eam atqui debitis molestie, inani semper pericula at pri. 
+                    An mel minimum indoctum, persius corpora usu ad, usu tritani consulatu instructior ei.",
+        "imageURL" => "images/commitee/masmoudi_atef.jpg",
         "poste" => "Commitee member"
     )
 
@@ -39,39 +39,25 @@ $commitee = array(
     <div class="container">
         <div class="twelve columns">
             <div class="title-text left">
-                <h3>International Commitee</h3>
+                <h3>Commitee</h3>
             </div>
         </div>
         <?php
         foreach ($commitee as $person) :
-        ?>
-        <div class="three columns"  data-scroll-reveal="enter bottom move 100px over 1s after 0.3s">
-            <div class="team-wrap fst">
-                <h6><?=$person['name'] ?></h6>
-                <p><?=$person['bio'] ?></p>
-                <div class="social-team">
-                    <ul class="list-social-team">
-                        <li class="icon-team tipped" data-title="twitter"  data-tipper-options='{"direction":"top","follow":"true"}'>
-                            <a href="#">&#xf099;</a>
-                        </li>
-                        <li class="icon-team tipped" data-title="github"  data-tipper-options='{"direction":"top","follow":"true"}'>
-                            <a href="#">&#xf09b;</a>
-                        </li>
-                        <li class="icon-team tipped" data-title="pinterest"  data-tipper-options='{"direction":"top","follow":"true"}'>
-                            <a href="#">&#xf231;</a>
-                        </li>
-                        <li class="icon-team tipped" data-title="facebook"  data-tipper-options='{"direction":"top","follow":"true"}'>
-                            <a href="#">&#xf09a;</a>
-                        </li>
-                    </ul>
+            ?>
+            <div class="three columns commitee-box"  data-scroll-reveal="enter bottom move 100px over 1s after 0.3s">
+                <div class="team-wrap fst">
+                    <h6><?=$person['name'] ?></h6>
+                    <p><?=$person['bio'] ?></p>
+                    <div class="poste">
+                        <?=$person['poste'] ?>
+                    </div>
+                    <!-- <img src="<?=$person['imageURL'] ?>" alt="Some image" /> -->
+                    <div class="img" style="background-image: url('<?=$person['imageURL'] ?>')" alt="Some image" >
+                    </div>
                 </div>
-               <!-- <img src="<?=$person['imageURL'] ?>" alt="Some image" /> -->
-                <div class="img" style="background-image: url('<?=$person['imageURL'] ?>')" alt="Some image" >
-                </div>
-
             </div>
-        </div>
-        <?php
+            <?php
         endforeach;        ?>
-     </div>
+    </div>
 </div>

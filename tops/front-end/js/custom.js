@@ -80,25 +80,188 @@
             return false;
         });
 
+        /*********** SUBSCRIPTION VALIDATION *************/
+
+        $('#password1').keyup(function (event) {
+            var err_pwd1 = $("#err-password1");
+            if ($('#password1').val().length < 8) {
+                err_pwd1.show();
+            }
+            else {
+                err_pwd1.hide();
+                var err_pwd2 = $("#err-password2");
+                if ($('#password2').val() != $('#password1').val()) {
+                    err_pwd2.show();
+                }
+                else {
+                    err_pwd2.hide();
+                }
+            }
+        });
+        $('#password2').keyup(function (event) {
+            var err_pwd2 = $("#err-password2");
+            if ($('#password2').val() != $('#password1').val()) {
+                err_pwd2.show();
+            }
+            else {
+                err_pwd2.hide();
+            }
+        });
 
         $('#send-subscription').click(function (event) {
-            var hash = $('#g-recaptcha-response').val();
-            console.log(hash);
-            $.get('components/verifyRecaptcha.php?secret='+hash, function (data, status) {
-                if(JSON.parse(data).status)
-                {
-                    console.log("ok !");
-                    $('#ajax-form').submit();
-                }
-                else
-                {
-                    console.log(JSON.parse(data).errors);
-                }
+            var error_code = verifySubscribe();
 
-            })
+
+            if (!error_code) {
+                var hash = $('#g-recaptcha-response').val();
+                console.log(hash);
+                console.log("no error");
+                var ajaxError = false;
+                $.ajaxSetup({
+                    error: function (xhr, status, error) {
+                        alert("An AJAX error occured: " + status + "\nError: " + error);
+                        ajaxError = true;
+                    }
+                });
+                $.get('components/verifyRecaptcha.php?secret=' + hash, function (data, status) {
+                    if (!ajaxError) {
+                        if (JSON.parse(data).status) {
+                            console.log("ok !");
+                            $('#ajax-form').submit();
+                        }
+                        else {
+                            console.log(JSON.parse(data).errors);
+                            swal({
+                                title: 'Error!',
+                                text: 'couldn\'t verify you\'re a human, Sorry!',
+                                type: 'error',
+                                confirmButtonText: 'Cool'
+                            })
+                        }
+                    }
+                    else
+                    {
+                        swal({
+                            title: 'Error!',
+                            text: 'couldn\'t verify you\'re a human, Sorry!',
+                            type: 'error',
+                            confirmButtonText: 'Cool'
+                        })
+                    }
+
+                });
+            }
+            else {
+                console.log("error");
+            }
+
             event.preventDefault();
 
         });
+
+        function verifySubscribe() {
+            var fname = $("#fname").val();
+            var lname = $("#lname").val();
+            var uname = $("#uname").val();
+            var email = $("#email").val();
+            var pwd1 = $("#password1").val();
+            var pwd2 = $("#password2").val();
+            var birthday = $("#birthday").val();
+            var institut = $("#institut").val();
+            var pic = $("#pic").val();
+
+            var err_fname = $("#err-fname");
+            var err_lname = $("#err-lname");
+            var err_uname = $("#err-uname");
+            var err_email = $("#err-email");
+            var err_pwd1 = $("#err-password1");
+            var err_pwd2 = $("#err-password2");
+            var err_birthday = $("#err-birthday");
+            var err_institut = $("#err-institut");
+            var err_pic = $("#err-pic");
+
+            var error_code = false;
+
+            if (!fname) {
+                error_code++;
+                err_fname.show();
+            }
+            else {
+                err_fname.hide();
+            }
+
+            if (!lname) {
+                error_code++;
+                err_lname.show();
+            }
+            else {
+                err_lname.hide();
+            }
+
+            if (!uname) {
+                error_code++;
+                err_uname.show();
+            }
+            else {
+                err_uname.hide();
+            }
+
+            if (!isValidEmailAddress(email)) {
+                error_code++;
+                err_email.show();
+            }
+            else {
+                err_email.hide();
+            }
+
+            if (pwd1.length < 8) {
+                error_code++;
+                err_pwd1.show();
+            }
+            else {
+                err_pwd1.hide();
+            }
+
+            if (pwd1 != pwd2) {
+                error_code++;
+                err_pwd2.show();
+            }
+            else {
+                err_pwd2.hide();
+            }
+
+            if (!birthday || (new Date(birthday)).getFullYear() < 1900 || (new Date(birthday)).getFullYear() > 2017) {
+                error_code++;
+                err_birthday.show();
+            }
+            else {
+                err_birthday.hide();
+            }
+
+            if (!institut) {
+                error_code++;
+                err_institut.show();
+            }
+            else {
+                err_institut.hide();
+            }
+
+            if (!pic || ($("#pic")[0].files[0].size > 8000000)) {
+                error_code++;
+                err_pic.show();
+            }
+            else {
+                err_pic.hide();
+            }
+
+
+            return error_code;
+        }
+
+        function isValidEmailAddress(emailAddress) {
+            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+            return pattern.test(emailAddress);
+        };
 
         (function ($) {
 
