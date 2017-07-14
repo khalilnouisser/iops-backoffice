@@ -48,19 +48,19 @@ namespace IOPSApi.Controllers
         }
 
 		[HttpPost("signin")]
-		public async Task<IActionResult> Login([FromBody]string EmailAdress,[FromBody]string AdminPassword)
+        public async Task<IActionResult> Login([FromBody]FormLogin login)
         {
 			dynamic response = new ExpandoObject();
             User admin = await _context.Admins
-                                   .Where(u => u.EmailAdress == EmailAdress && u.AdminPassword == AdminPassword)
+                                   .Where(u => u.EmailAdress == login.EmailAdress && u.AdminPassword == login.AdminPassword)
                                    .FirstOrDefaultAsync();
 
-            if(admin == null){
+            if(admin == null){ 
                 response.status = 0;
 				response.extra = new ExpandoObject();
-				response.extra.EmailAdress = EmailAdress;
-                response.extra.AdminPassword = AdminPassword;
-				return BadRequest(response);
+				response.extra.EmailAdress = login.EmailAdress;
+                response.extra.AdminPassword = login.AdminPassword;
+                return Ok(response);
             }
 			response.status = 1;
 			response.extra = new ExpandoObject();
@@ -68,5 +68,10 @@ namespace IOPSApi.Controllers
             return Ok(response);
 		}
 
-    }
+    }  
+    public class FormLogin {
+        public string EmailAdress { get; set; }
+        public string AdminPassword { get; set; }
+    }  
 }
+ 

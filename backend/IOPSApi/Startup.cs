@@ -35,7 +35,7 @@ namespace IOPSApi
 					.AddMvcCore()
 					.AddAuthorization()
 					.AddJsonFormatters(j => j.Formatting = Newtonsoft.Json.Formatting.Indented);
-             
+
 			services.AddCors(options =>
 				{
 					options.AddPolicy("CorsPolicy",
@@ -44,17 +44,19 @@ namespace IOPSApi
 						.AllowAnyHeader()
 						.AllowCredentials());
 				});
-
-            services.AddSingleton(Configuration);
-            services.AddMvc(options=>{
+             
+			services.AddMvc(options =>
+			{
 				options.InputFormatters.Add(new TextPlainInputFormatter());
 			}).AddJsonOptions(options =>
-            {  
-                options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-            });
+			{
+				options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
+				options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+			});
 
 			services.AddDbContext<MysqlDBContext>();
+
+			// Add framework services.
 
 			// Register the Swagger generator, defining one or more Swagger documents
 			services.AddSwaggerGen(c =>
@@ -64,17 +66,14 @@ namespace IOPSApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory,MysqlDBContext context)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            context.Database.EnsureCreated();
-            app.UseMvc(); 
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials());
 
-			app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials());
-
-
+			app.UseMvc();
 			app.UseSwagger(c =>
 				{
 					c.PreSerializeFilters.Add((swagger, httpReq) => swagger.Host = httpReq.Host.Value);
@@ -86,11 +85,7 @@ namespace IOPSApi
         }
     }
      
-	
-
-}
-
-public class TextPlainInputFormatter : TextInputFormatter
+	public class TextPlainInputFormatter : TextInputFormatter
 	{
 		public TextPlainInputFormatter()
 		{
@@ -117,3 +112,6 @@ public class TextPlainInputFormatter : TextInputFormatter
 			return InputFormatterResult.Success(data);
 		}
 	}
+
+}
+
