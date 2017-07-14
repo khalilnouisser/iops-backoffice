@@ -6,6 +6,8 @@ namespace IOPSApi.Models
     { 
         [Key]
         public int NewsID { get; set; }
+		[Required]
+		public string Title { get; set; }
         [Required]
         [MaxLength(1000)]
         public string Text { get; set; }

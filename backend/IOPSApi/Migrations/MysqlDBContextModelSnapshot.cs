@@ -67,7 +67,7 @@ namespace IOPSApi.Migrations
 
                     b.Property<string>("CountryID");
 
-                    b.Property<DateTime?>("Date");
+                    b.Property<DateTime?>("DateEvent");
 
                     b.Property<string>("Descriptions")
                         .IsRequired();
@@ -128,7 +128,7 @@ namespace IOPSApi.Migrations
 
                     b.Property<string>("CountryID");
 
-                    b.Property<DateTime?>("Date");
+                    b.Property<DateTime?>("DateMessage");
 
                     b.Property<string>("EmailAddress")
                         .IsRequired();

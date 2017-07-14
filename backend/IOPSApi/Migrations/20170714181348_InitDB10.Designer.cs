@@ -9,8 +9,8 @@ using IOPSApi.Models;
 namespace IOPSApi.Migrations
 {
     [DbContext(typeof(MysqlDBContext))]
-    [Migration("20170712225640_initdb6")]
-    partial class initdb6
+    [Migration("20170714181348_InitDB10")]
+    partial class InitDB10
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -61,6 +61,28 @@ namespace IOPSApi.Migrations
                     b.ToTable("Countries");
                 });
 
+            modelBuilder.Entity("IOPSApi.Models.Event", b =>
+                {
+                    b.Property<int>("EventID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CountryID");
+
+                    b.Property<DateTime?>("DateEvent");
+
+                    b.Property<string>("Descriptions")
+                        .IsRequired();
+
+                    b.Property<string>("ImageURL");
+
+                    b.Property<string>("Title")
+                        .IsRequired();
+
+                    b.HasKey("EventID");
+
+                    b.ToTable("Events");
+                });
+
             modelBuilder.Entity("IOPSApi.Models.Inscription", b =>
                 {
                     b.Property<int>("InscID")
@@ -75,7 +97,7 @@ namespace IOPSApi.Migrations
                     b.Property<string>("CountryID")
                         .IsRequired();
 
-                    b.Property<DateTime>("DateInsc");
+                    b.Property<DateTime?>("DateInsc");
 
                     b.Property<string>("EmailAdress")
                         .IsRequired();
@@ -107,6 +129,10 @@ namespace IOPSApi.Migrations
 
                     b.Property<string>("CountryID");
 
+                    b.Property<DateTime>("Date");
+
+                    b.Property<DateTime?>("DateMessage");
+
                     b.Property<string>("EmailAddress")
                         .IsRequired();
 
@@ -127,7 +153,7 @@ namespace IOPSApi.Migrations
                     b.Property<int>("NewsID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("DatePub");
+                    b.Property<DateTime?>("DatePub");
 
                     b.Property<string>("PhotoURL");
 
@@ -145,7 +171,7 @@ namespace IOPSApi.Migrations
                     b.Property<int>("UserID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("DateCreation");
+                    b.Property<DateTime?>("DateCreation");
 
                     b.Property<string>("Discriminator")
                         .IsRequired();

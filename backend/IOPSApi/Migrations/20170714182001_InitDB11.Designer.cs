@@ -9,8 +9,8 @@ using IOPSApi.Models;
 namespace IOPSApi.Migrations
 {
     [DbContext(typeof(MysqlDBContext))]
-    [Migration("20170712212726_initdb4")]
-    partial class initdb4
+    [Migration("20170714182001_InitDB11")]
+    partial class InitDB11
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -61,6 +61,28 @@ namespace IOPSApi.Migrations
                     b.ToTable("Countries");
                 });
 
+            modelBuilder.Entity("IOPSApi.Models.Event", b =>
+                {
+                    b.Property<int>("EventID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CountryID");
+
+                    b.Property<DateTime?>("DateEvent");
+
+                    b.Property<string>("Descriptions")
+                        .IsRequired();
+
+                    b.Property<string>("ImageURL");
+
+                    b.Property<string>("Title")
+                        .IsRequired();
+
+                    b.HasKey("EventID");
+
+                    b.ToTable("Events");
+                });
+
             modelBuilder.Entity("IOPSApi.Models.Inscription", b =>
                 {
                     b.Property<int>("InscID")
@@ -72,19 +94,24 @@ namespace IOPSApi.Migrations
 
                     b.Property<string>("ContextID");
 
-                    b.Property<string>("CountryID");
+                    b.Property<string>("CountryID")
+                        .IsRequired();
 
-                    b.Property<DateTime>("DateInsc");
+                    b.Property<DateTime?>("DateInsc");
 
-                    b.Property<string>("EmailAdress");
+                    b.Property<string>("EmailAdress")
+                        .IsRequired();
 
-                    b.Property<string>("Fname");
+                    b.Property<string>("Fname")
+                        .IsRequired();
 
-                    b.Property<string>("Lname");
+                    b.Property<string>("Lname")
+                        .IsRequired();
 
                     b.Property<int>("Status");
 
-                    b.Property<string>("University");
+                    b.Property<string>("University")
+                        .IsRequired();
 
                     b.HasKey("InscID");
 
@@ -95,12 +122,36 @@ namespace IOPSApi.Migrations
                     b.ToTable("Inscriptions");
                 });
 
+            modelBuilder.Entity("IOPSApi.Models.Messages", b =>
+                {
+                    b.Property<int>("MessageID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CountryID");
+
+                    b.Property<DateTime?>("DateMessage");
+
+                    b.Property<string>("EmailAddress")
+                        .IsRequired();
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasMaxLength(9000);
+
+                    b.HasKey("MessageID");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("IOPSApi.Models.News", b =>
                 {
                     b.Property<int>("NewsID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("DatePub");
+                    b.Property<DateTime?>("DatePub");
 
                     b.Property<string>("PhotoURL");
 
@@ -118,7 +169,7 @@ namespace IOPSApi.Migrations
                     b.Property<int>("UserID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("DateCreation");
+                    b.Property<DateTime?>("DateCreation");
 
                     b.Property<string>("Discriminator")
                         .IsRequired();
@@ -172,7 +223,8 @@ namespace IOPSApi.Migrations
 
                     b.HasOne("IOPSApi.Models.Country", "Country")
                         .WithMany("Inscriptions")
-                        .HasForeignKey("CountryID");
+                        .HasForeignKey("CountryID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }
