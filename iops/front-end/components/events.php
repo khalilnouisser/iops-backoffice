@@ -86,7 +86,7 @@ $events = array(
                             <div class="journal-wrap">
                                 <img src="<?= 'images/events/'.$key->imageURL?>" alt=""/>
                                 <div class="journal-det">
-                                    <h6><?= $key->descriptions?> <span><?= $key->date?></span></h6>
+                                    <h6><?= $key->descriptions?> <span><?= $key->dateEvent?></span></h6>
                                     <h5><?= $key->title?></h5>
                                     <!--a href="#">
                                         <div class="link">read more</div>
