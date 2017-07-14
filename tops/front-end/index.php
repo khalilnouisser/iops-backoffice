@@ -189,7 +189,7 @@
     <!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
-    ================================================== -->
+
 </body>
 
 <!-- Mirrored from ivang-design.com/talos/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Jul 2017 10:45:59 GMT -->

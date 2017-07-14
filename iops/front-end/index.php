@@ -23,6 +23,7 @@
     <!-- CSS
   ================================================== -->
     <link rel="stylesheet" href="js/jquery-modal-master/jquery.modal.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.6/sweetalert2.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/skeleton.css"/>
     <link rel="stylesheet" href="css/layout.css"/>
@@ -184,6 +185,7 @@
     <script type="text/javascript" src="js/custom.js"></script>
     <script type="text/javascript" src="js/masonry.js"></script>
     <script type="text/javascript" src="js/isotope.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.6/sweetalert2.min.js" type="text/javascript" charset="utf-8"></script>
 
     <!-- REVOLUTION JS FILES -->
     <script type="text/javascript" src="js/jquery.themepunch.tools.min.js"></script>
@@ -199,6 +201,10 @@
     <script type="text/javascript" src="js/extensions/revolution.extension.slideanims.min.js"></script>
     <script type="text/javascript" src="js/extensions/revolution.extension.video.min.js"></script>
     <!--script type="text/javascript" src="js/custom-home.js"></--script-->
+    <!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+
+
     <!-- End Document
     ================================================== -->
 </body>

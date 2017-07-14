@@ -26,7 +26,7 @@
     </div>
     <div class="section padding-bottom">
         <div class="container">
-            <form name="ajax-form" id="ajax-form-contact" action=""
+            <form name="ajax-form" id="ajax-form-contact" action="default"
                   method="post">
                 <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                     <label for="name">
@@ -36,13 +36,15 @@
                 </div>
                 <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                     <label for="email">
-                        <span class="error" id="err-emailvld-contact">e-mail is not a valid format</span>
+                        <span class="error" id="err-email-contact">e-mail is not a valid format</span>
                     </label>
                     <input name="email" id="email-contact" type="email" placeholder="E-Mail: *"/>
                 </div>
                 <div class="twelve columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
+                    <span class="error" id="err-message-contact">Message is too short (+10 Caracters)</span>
                     <label for="message"></label>
-                    <textarea name="message" id="message-contact" placeholder="Tell Us Everything"></textarea>
+                    <textarea name="message" id="message-contact"
+                              placeholder="Tell Us Everything (+10 Caracters)"></textarea>
                 </div>
                 <div class="twelve columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                     <div id="button-con">
@@ -56,7 +58,6 @@
             </form>
 
             <div class="clear"></div>
-            <div id="ajaxsuccess-contact">Successfully sent!!</div>
             <div class="clear"></div>
         </div>
     </div>

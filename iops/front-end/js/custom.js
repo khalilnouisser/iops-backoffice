@@ -86,22 +86,77 @@
             var email = $('#email-contact').val();
             var message = $('#message-contact').val();
             var error_code = verifyContact(name,email,message);
-            console.log("error code :"+error_code);
-            $.ajax({
-                url: 'http://localhost:5000/api/contactUS',
-                type: 'get',
-                data: {'name':name,'emailAdress':email,'text':message},
-                dataType: 'json',
-                success: function(data){
-                    alert(JSON.parse(data).status);
+            var ajaxError = false;
+            $.ajaxSetup({
+                error: function (xhr, status, error) {
+                    //alert("An AJAX error occured: " + status + "\nError: " + error);
+                    ajaxError = true;
                 }
             });
+            if(!error_code){
+                $.post('components/sendContact.php' ,{'email':email,'name':name,'message':message}, function (data, status) {
+                    if (!ajaxError) {
+                        if (data.status) {
+                            swal({
+                                title: 'Success',
+                                text: 'Thank you for your message !',
+                                type: 'success',
+                                confirmButtonText: 'Cool'
+                            })
+                            $('#name-contact').val("");
+                            $('#email-contact').val("");
+                            $('#message-contact').val("");
+                        }
+                        else {
+                            swal({
+                                title: 'Error!',
+                                text: data.error_message,
+                                type: 'error',
+                                confirmButtonText: 'Cool'
+                            })
+                        }
+                    }
+                    else
+                    {
+                        swal({
+                            title: 'Error!',
+                            text: 'Sorry we couldn\'t send your message <br>Server error',
+                            type: 'error',
+                            confirmButtonText: 'Cool'
+                        })
+                    }
+
+                });
+            }
+
             event.preventDefault();
         });
         function verifyContact(name,email,message)
         {
-            var error_code = 0;
-            console.log(name+" "+email+" "+message);
+
+            var err_name = $('#err-name-contact');
+            var err_email = $('#err-email-contact');
+            var err_message = $('#err-message-contact');
+            var error_code=0;
+            if (!name) {
+                error_code++;
+                err_name.show();
+            }else {
+                err_name.hide();
+            }
+            if (!email||!isValidEmailAddress(email)) {
+                error_code++;
+                err_email.show();
+            }else {
+                err_email.hide();
+            }
+            if (!message || message.length<10) {
+                error_code++;
+                err_message.show();
+            }else {
+                err_message.hide();
+            }
+
             return error_code;
         }
         function isValidEmailAddress(emailAddress) {

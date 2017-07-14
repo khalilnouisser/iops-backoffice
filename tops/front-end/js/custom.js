@@ -79,7 +79,87 @@
             $(this).attr('href', '');
             return false;
         });
+        /********** CONTACTING VALIDATION ****************/
 
+        /********** CONTACTING VALIDATION ****************/
+        $('#send').click(function (event) {
+            var name = $('#name-contact').val();
+            var email = $('#email-contact').val();
+            var message = $('#message-contact').val();
+            var error_code = verifyContact(name,email,message);
+            var ajaxError = false;
+            $.ajaxSetup({
+                error: function (xhr, status, error) {
+                    //alert("An AJAX error occured: " + status + "\nError: " + error);
+                    ajaxError = true;
+                }
+            });
+            if(!error_code){
+                $.post('components/sendContact.php' ,{'email':email,'name':name,'message':message}, function (data, status) {
+                    if (!ajaxError) {
+                        if (data.status) {
+                            swal({
+                                title: 'Success',
+                                text: 'Thank you for your message !',
+                                type: 'success',
+                                confirmButtonText: 'Cool'
+                            })
+                            $('#name-contact').val("");
+                            $('#email-contact').val("");
+                            $('#message-contact').val("");
+                        }
+                        else {
+                            swal({
+                                title: 'Error!',
+                                text: data.error_message,
+                                type: 'error',
+                                confirmButtonText: 'Cool'
+                            })
+                        }
+                    }
+                    else
+                    {
+                        swal({
+                            title: 'Error!',
+                            text: 'Sorry we couldn\'t send your message <br>Server error',
+                            type: 'error',
+                            confirmButtonText: 'Cool'
+                        })
+                    }
+
+                });
+            }
+
+            event.preventDefault();
+        });
+        function verifyContact(name,email,message)
+        {
+
+            var err_name = $('#err-name-contact');
+            var err_email = $('#err-email-contact');
+            var err_message = $('#err-message-contact');
+            var error_code=0;
+            if (!name) {
+                error_code++;
+                err_name.show();
+            }else {
+                err_name.hide();
+            }
+            if (!email||!isValidEmailAddress(email)) {
+                error_code++;
+                err_email.show();
+            }else {
+                err_email.hide();
+            }
+            if (!message || message.length<10) {
+                error_code++;
+                err_message.show();
+            }else {
+                err_message.hide();
+            }
+
+            return error_code;
+        }
         /*********** SUBSCRIPTION VALIDATION *************/
 
         $('#password1').keyup(function (event) {
@@ -119,7 +199,7 @@
                 var ajaxError = false;
                 $.ajaxSetup({
                     error: function (xhr, status, error) {
-                        alert("An AJAX error occured: " + status + "\nError: " + error);
+                        //alert("An AJAX error occured: " + status + "\nError: " + error);
                         ajaxError = true;
                     }
                 });
