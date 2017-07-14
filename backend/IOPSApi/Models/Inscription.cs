@@ -15,11 +15,7 @@ namespace IOPSApi.Models
         [EmailAddress]
 		[Required]
 		public string EmailAdress { set; get; }
-<<<<<<< HEAD
         public DateTime? DateInsc { get; set; }
-=======
-        public DateTime DateInsc { get; set; } = new DateTime();
->>>>>>> 4b0389fc64b3e261991c0b67f54501c498a5157b
 
         public string CinPic { set; get; }
         public string CEPic { set; get; }
