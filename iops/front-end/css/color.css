@@ -53,7 +53,7 @@ ul.slimmenu li a.mPS2id-highlight,
 .comments textarea:focus,
 .comments input:focus,
 .comments textarea:active,
-.comments input:active {	
+.comments input:active {
 	border-bottom:1px solid #cfa144;
 }
 .sidebar input:-ms-input-placeholder  {
@@ -73,7 +73,7 @@ ul.slimmenu li a.mPS2id-highlight,
 #ajax-form textarea:focus,
 #ajax-form input:focus,
 #ajax-form textarea:active,
-#ajax-form input:active {	
+#ajax-form input:active {
 	border-bottom:1px solid #cfa144;
 }
 ::selection {
