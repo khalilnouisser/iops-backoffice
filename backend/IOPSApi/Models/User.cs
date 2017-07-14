@@ -6,7 +6,7 @@ namespace IOPSApi.Models
     {
         [Key]
         public int UserID { get; set; }
-        [Required]
+        [Required] 
         public string Fname { get; set; }
 		[Required]
 		public string Lname { get; set; }
@@ -15,9 +15,9 @@ namespace IOPSApi.Models
 		public string EmailAdress { get; set; }
 		[Required] 
 		public string Password { get; set; }
-		public DateTime DateCreation { get; set; }
+		public DateTime? DateCreation { get; set; }
 		[Url]
         public string ProfilePic { get; set; }
-	}  
+	}   
 }
  

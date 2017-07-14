@@ -17,6 +17,7 @@ namespace IOPSApi.Models
         public string Descriptions { get; set; }
         public string CountryID { get; set; }
 
-        public DateTime Date { get; set; }
+        public DateTime? DateEvent { get; set; }
+
 }
 }

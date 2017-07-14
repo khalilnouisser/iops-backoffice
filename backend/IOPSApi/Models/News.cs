@@ -10,6 +10,6 @@ namespace IOPSApi.Models
         [MaxLength(1000)]
         public string Text { get; set; }
         public string PhotoURL { get; set; }
-        public DateTime DatePub { get; set; }
+        public DateTime? DatePub { get; set; }
     } 
 }

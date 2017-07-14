@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 
@@ -15,7 +15,7 @@ namespace IOPSApi.Models
         [EmailAddress]
 		[Required]
 		public string EmailAdress { set; get; }
-        public DateTime DateInsc { get; set; }
+        public DateTime? DateInsc { get; set; }
 
         public string CinPic { set; get; }
         public string CEPic { set; get; }

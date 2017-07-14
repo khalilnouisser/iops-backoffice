@@ -30,7 +30,7 @@ namespace IOPSApi.Controllers
 		{
 			string countryID = "";
 
-			m.Date = DateTime.Now;
+			m.DateMessage = DateTime.Now;
 
 			dynamic response = new ExpandoObject();
 			if (ModelState.IsValid)
@@ -61,7 +61,7 @@ namespace IOPSApi.Controllers
 
 		public async Task<IActionResult> PostNewInCountry([FromBody]Messages m, string countryID = "")
 		{
-			m.Date = DateTime.Now;
+			m.DateMessage = DateTime.Now;
 
 			dynamic response = new ExpandoObject();
 			if (ModelState.IsValid)
@@ -122,7 +122,7 @@ namespace IOPSApi.Controllers
 			response.extra = new ExpandoObject();
 			response.extra.messages = await _context.Messages.Where(k => k.CountryID == countryID).ToListAsync();
 			return Ok(response);
-
+             
 		}
 
 	}

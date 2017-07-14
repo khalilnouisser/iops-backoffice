@@ -23,7 +23,7 @@ namespace IOPSApi.Models
 		[MinLength(2)]
         public string Name { get; set; }
 
-		public DateTime Date { get; set; }
+		public DateTime? DateMessage { get; set; }
 
 
 		public string CountryID { get; set; }  
