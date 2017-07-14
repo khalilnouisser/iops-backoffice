@@ -1,39 +1,12 @@
-﻿<Properties StartupConfiguration="{2C494D0C-020C-46F7-9B55-C2789BB4F456}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="IOPSApi/Data/MysqlDBContext.cs">
+﻿<Properties StartupConfiguration="{2C494D0C-020C-46F7-9B55-C2789BB4F456}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="IOPSApi/Controllers/MessageController.cs">
     <Files>
-      <File FileName="IOPSApi/Models/News.cs" Line="13" Column="47" />
-      <File FileName="IOPSApi/Models/Messages.cs" Line="26" Column="31" />
-      <File FileName="IOPSApi/Controllers/MessageController.cs" Line="125" Column="14" />
-      <File FileName="IOPSApi/Models/Inscription.cs" Line="18" Column="48" />
-      <File FileName="IOPSApi/Models/Event.cs" Line="20" Column="35" />
-      <File FileName="IOPSApi/Controllers/EventController.cs" Line="67" Column="70" />
-      <File FileName="IOPSApi/Models/Country.cs" Line="14" Column="45" />
-      <File FileName="IOPSApi/Models/Continent.cs" Line="1" Column="1" />
-      <File FileName="IOPSApi/Models/Context.cs" Line="1" Column="1" />
-      <File FileName="IOPSApi/Models/Admin.cs" Line="1" Column="1" />
-      <File FileName="IOPSApi/Models/User.cs" Line="21" Column="6" />
-      <File FileName="IOPSApi/Startup.cs" Line="79" Column="6" />
-      <File FileName="IOPSApi/Data/MysqlDBContext.cs" Line="20" Column="75" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="IOPSApi/Models/User.cs">
-    <Files>
-      <File FileName="IOPSApi/Controllers/NewsController.cs" Line="29" Column="59" />
-      <File FileName="IOPSApi/Controllers/ContinentController.cs" Line="30" Column="59" />
-      <File FileName="IOPSApi/Models/Continent.cs" Line="8" Column="14" />
-      <File FileName="IOPSApi/Models/Country.cs" Line="11" Column="33" />
-      <File FileName="IOPSApi/Startup.cs" Line="64" Column="26" />
-      <File FileName="IOPSApi/Controllers/AdminController.cs" Line="51" Column="81" />
-      <File FileName="IOPSApi/Controllers/ContextController.cs" Line="28" Column="59" />
-      <File FileName="IOPSApi/Controllers/CountryController.cs" Line="27" Column="53" />
-      <File FileName="IOPSApi/Models/Admin.cs" Line="1" Column="1" />
-      <File FileName="IOPSApi/Models/Context.cs" Line="1" Column="1" />
-      <File FileName="IOPSApi/Models/Event.cs" Line="22" Column="1" />
-      <File FileName="IOPSApi/Models/Inscription.cs" Line="18" Column="65" />
-      <File FileName="IOPSApi/Models/Messages.cs" Line="26" Column="55" />
-      <File FileName="IOPSApi/Models/News.cs" Line="13" Column="64" />
-      <File FileName="IOPSApi/Models/User.cs" Line="18" Column="63" />
->>>>>>> 4b0389fc64b3e261991c0b67f54501c498a5157b
+      <File FileName="IOPSApi/Controllers/AdminController.cs" Line="43" Column="42" />
+      <File FileName="IOPSApi/Controllers/EventController.cs" Line="40" Column="41" />
+      <File FileName="IOPSApi/Controllers/MessageController.cs" Line="76" Column="19" />
+      <File FileName="IOPSApi/Models/Event.cs" Line="13" Column="1" />
+      <File FileName="IOPSApi/Models/News.cs" Line="10" Column="36" />
+      <File FileName="IOPSApi/Controllers/CountryController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -37,6 +37,7 @@ namespace IOPSApi.Controllers
 				{
 					e.CountryID = "";
 				}
+                e.CountryID = countryID;
 				response.status = 1;
                 await _context.Events.AddAsync(e);
 				await _context.SaveChangesAsync();
