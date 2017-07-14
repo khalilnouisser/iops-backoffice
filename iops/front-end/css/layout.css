@@ -3786,7 +3786,7 @@ animated buttons - animate the text inside prev and next buttons
 /* #Contact form
 ================================================== */
 
-#ajax-form {
+#ajax-form,#ajax-form-contact {
     width: 100%;
     font-family: 'Open Sans', sans-serif;
     font-size: 10px;
@@ -3795,14 +3795,14 @@ animated buttons - animate the text inside prev and next buttons
     margin: 0 auto;
 }
 
-#ajax-form label {
+#ajax-form label,#ajax-form-contact label {
     display: block;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     line-height: 30px;
 }
 
-#ajax-form input {
+#ajax-form input,#ajax-form-contact input {
     position: relative;
     width: calc(100% - 40px);
     padding-left: 20px;
@@ -3820,7 +3820,7 @@ animated buttons - animate the text inside prev and next buttons
     transition: border-bottom 0.3s, color 0.3s;
 }
 
-#ajax-form textarea {
+#ajax-form textarea,#ajax-form-contact textarea {
     width: calc(100% - 40px);
     padding-left: 20px;
     padding-right: 20px;
@@ -3838,7 +3838,8 @@ animated buttons - animate the text inside prev and next buttons
 }
 
 #ajax-form textarea,
-#ajax-form input {
+#ajax-form input,#ajax-form-contact textarea,
+#ajax-form-contact input  {
     border-bottom: 1px solid rgba(100, 100, 100, .2);
 }
 
@@ -3869,77 +3870,80 @@ animated buttons - animate the text inside prev and next buttons
 }
 
 #ajax-form textarea:active,
-#ajax-form input:active {
+#ajax-form input:active,#ajax-form-contact textarea:active,
+#ajax-form-contact input:active {
     color: #101010;
 }
 
 #ajax-form textarea:active,
-#ajax-form input:hover {
+#ajax-form input:hover,#ajax-form-contact textarea:active,
+#ajax-form-contact input:hover {
     color: #101010;
 }
 
 #ajax-form textarea:focus,
-#ajax-form input:focus {
+#ajax-form input:focus,#ajax-form-contact textarea:focus,
+#ajax-form-contact input:focus {
     outline: none !important;
 }
 
-#ajax-form input:-ms-input-placeholder {
+#ajax-form input:-ms-input-placeholder,#ajax-form-contact input:-ms-input-placeholder {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #999999;
 }
 
-#ajax-form input::-moz-placeholder {
+#ajax-form input::-moz-placeholder,#ajax-form-contact input::-moz-placeholder {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #999999;
 }
 
-#ajax-form input:-moz-placeholder {
+#ajax-form input:-moz-placeholder,#ajax-form-contact input:-moz-placeholder {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #999999;
 }
 
-#ajax-form input::-webkit-input-placeholder {
+#ajax-form input::-webkit-input-placeholder,#ajax-form-contact input::-webkit-input-placeholder {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #999999;
 }
 
-#ajax-form textarea:-ms-input-placeholder {
+#ajax-form textarea:-ms-input-placeholder,#ajax-form-contact textarea:-ms-input-placeholder {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #999999;
 }
 
-#ajax-form textarea::-moz-placeholder {
+#ajax-form textarea::-moz-placeholder,#ajax-form-contact textarea::-moz-placeholder {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #999999;
 }
 
-#ajax-form textarea:-moz-placeholder {
+#ajax-form textarea:-moz-placeholder,#ajax-form-contact textarea:-moz-placeholder {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #999999;
 }
 
-#ajax-form textarea::-webkit-input-placeholder {
+#ajax-form textarea::-webkit-input-placeholder,#ajax-form-contact textarea::-webkit-input-placeholder {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #999999;
 }
 
-#ajax-form button {
+#ajax-form button,#ajax-form-contact button {
     background: #323232;
     color: #fff;
     font-size: 13px;
@@ -3947,12 +3951,13 @@ animated buttons - animate the text inside prev and next buttons
     max-width: 150px;
 }
 
-#ajax-form button:hover {
+#ajax-form button:hover,#ajax-form-contact button:hover {
     color: #fff;
 }
 
 #ajax-form button:focus,
-#ajax-form button:active {
+#ajax-form button:active,#ajax-form-contact button:focus,
+#ajax-form-contact button:active {
     border: none;
     outline: none;
 }

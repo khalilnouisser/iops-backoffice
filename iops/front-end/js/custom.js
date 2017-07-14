@@ -74,15 +74,40 @@
         //country
 
         $('a[data-modal]').click(function (event) {
-            $(this).attr('href','components/countryDetail.php?countryID='+$(this).attr('data-country'));
+            $(this).attr('href', 'components/countryDetail.php?countryID=' + $(this).attr('data-country'));
             $(this).modal();
-            $(this).attr('href','');
+            $(this).attr('href', '');
             return false;
         });
 
-
-
-
+        /********** CONTACTING VALIDATION ****************/
+        $('#send').click(function (event) {
+            var name = $('#name-contact').val();
+            var email = $('#email-contact').val();
+            var message = $('#message-contact').val();
+            var error_code = verifyContact(name,email,message);
+            console.log("error code :"+error_code);
+            $.ajax({
+                url: 'http://localhost:5000/api/contactUS',
+                type: 'get',
+                data: {'name':name,'emailAdress':email,'text':message},
+                dataType: 'json',
+                success: function(data){
+                    alert(JSON.parse(data).status);
+                }
+            });
+            event.preventDefault();
+        });
+        function verifyContact(name,email,message)
+        {
+            var error_code = 0;
+            console.log(name+" "+email+" "+message);
+            return error_code;
+        }
+        function isValidEmailAddress(emailAddress) {
+            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+            return pattern.test(emailAddress);
+        };
         (function ($) {
 
 

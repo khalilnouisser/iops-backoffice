@@ -26,24 +26,23 @@
     </div>
     <div class="section padding-bottom">
         <div class="container">
-            <form name="ajax-form" id="ajax-form" action="http://ivang-design.com/talos/12medical/mail-it.php"
+            <form name="ajax-form" id="ajax-form-contact" action=""
                   method="post">
                 <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                     <label for="name">
-                        <span class="error" id="err-name">please enter name</span>
+                        <span class="error" id="err-name-contact">please enter name</span>
                     </label>
-                    <input name="name" id="name" type="text" placeholder="Your Name: *"/>
+                    <input name="name" id="name-contact" type="text" placeholder="Your Name: *"/>
                 </div>
                 <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                     <label for="email">
-                        <span class="error" id="err-email">please enter e-mail</span>
-                        <span class="error" id="err-emailvld">e-mail is not a valid format</span>
+                        <span class="error" id="err-emailvld-contact">e-mail is not a valid format</span>
                     </label>
-                    <input name="email" id="email" type="text" placeholder="E-Mail: *"/>
+                    <input name="email" id="email-contact" type="email" placeholder="E-Mail: *"/>
                 </div>
                 <div class="twelve columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                     <label for="message"></label>
-                    <textarea name="message" id="message" placeholder="Tell Us Everything"></textarea>
+                    <textarea name="message" id="message-contact" placeholder="Tell Us Everything"></textarea>
                 </div>
                 <div class="twelve columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                     <div id="button-con">
@@ -53,15 +52,11 @@
                     </div>
                 </div>
                 <div class="clear"></div>
-                <div class="error text-align-center" id="err-form">There was a problem validating the form please
-                    check!
-                </div>
-                <div class="error text-align-center" id="err-timedout">The connection to the server timed out!</div>
-                <div class="error" id="err-state"></div>
+
             </form>
 
             <div class="clear"></div>
-            <div id="ajaxsuccess">Successfully sent!!</div>
+            <div id="ajaxsuccess-contact">Successfully sent!!</div>
             <div class="clear"></div>
         </div>
     </div>
