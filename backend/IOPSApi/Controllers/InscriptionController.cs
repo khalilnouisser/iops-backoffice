@@ -60,8 +60,10 @@ namespace IOPSApi.Controllers
 			dynamic response = new ExpandoObject();
             if (ModelState.IsValid && file != null && file.Length!=0)
             {
-				Inscription u = await _context.Inscriptions.Where(k => k.EmailAdress == userInscri.EmailAdress).FirstOrDefaultAsync();
-                if(u!=null){
+				Inscription u1 = await _context.Inscriptions.Where(k => k.EmailAdress == userInscri.EmailAdress).FirstOrDefaultAsync();
+                Inscription u2 = await _context.Inscriptions.Where(k => k.Username == userInscri.Username).FirstOrDefaultAsync();
+                 
+				if(u1!=null||u2!=null){
 					response.status = 0;
 					response.extra = new ExpandoObject();
 					response.extra.userInscri = userInscri;

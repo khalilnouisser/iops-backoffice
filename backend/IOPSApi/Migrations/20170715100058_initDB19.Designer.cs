@@ -9,9 +9,10 @@ using IOPSApi.Models;
 namespace IOPSApi.Migrations
 {
     [DbContext(typeof(MysqlDBContext))]
-    partial class MysqlDBContextModelSnapshot : ModelSnapshot
+    [Migration("20170715100058_initDB19")]
+    partial class initDB19
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
@@ -87,8 +88,6 @@ namespace IOPSApi.Migrations
                     b.Property<int>("InscID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("BirthdayDate");
-
                     b.Property<string>("CEPic");
 
                     b.Property<string>("CinPic");
@@ -113,8 +112,6 @@ namespace IOPSApi.Migrations
 
                     b.Property<string>("University")
                         .IsRequired();
-
-                    b.Property<string>("Username");
 
                     b.HasKey("InscID");
 

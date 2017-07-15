@@ -8,6 +8,8 @@ namespace IOPSApi.Models
     {
         [Key]
         public int InscID { set; get; }
+        public string Username { get; set; }
+        public string BirthdayDate { get; set; }
         [Required]
         public string Fname { get; set; }
 		[Required]

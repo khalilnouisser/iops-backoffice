@@ -9,9 +9,10 @@ using IOPSApi.Models;
 namespace IOPSApi.Migrations
 {
     [DbContext(typeof(MysqlDBContext))]
-    partial class MysqlDBContextModelSnapshot : ModelSnapshot
+    [Migration("20170715101400_initDB20")]
+    partial class initDB20
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");

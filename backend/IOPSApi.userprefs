@@ -1,10 +1,12 @@
 ﻿<Properties StartupConfiguration="{2C494D0C-020C-46F7-9B55-C2789BB4F456}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="IOPSApi/Models/News.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="IOPSApi/Controllers/MessageController.cs">
     <Files>
       <File FileName="IOPSApi/Models/Inscription.cs" Line="21" Column="28" />
       <File FileName="IOPSApi/Controllers/AdminController.cs" Line="32" Column="17" />
-      <File FileName="IOPSApi/Controllers/InscriptionController.cs" Line="112" Column="1" />
-      <File FileName="IOPSApi/Models/News.cs" Line="10" Column="36" />
+      <File FileName="IOPSApi/Controllers/InscriptionController.cs" Line="70" Column="27" />
+      <File FileName="IOPSApi/Models/News.cs" Line="13" Column="27" />
+      <File FileName="IOPSApi/Models/Messages.cs" Line="28" Column="1" />
+      <File FileName="IOPSApi/Controllers/MessageController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
