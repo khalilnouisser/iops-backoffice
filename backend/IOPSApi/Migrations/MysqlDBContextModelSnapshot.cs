@@ -142,6 +142,8 @@ namespace IOPSApi.Migrations
 
                     b.HasKey("MessageID");
 
+                    b.HasIndex("CountryID");
+
                     b.ToTable("Messages");
                 });
 
@@ -157,6 +159,9 @@ namespace IOPSApi.Migrations
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasMaxLength(1000);
+
+                    b.Property<string>("Title")
+                        .IsRequired();
 
                     b.HasKey("NewsID");
 
@@ -224,6 +229,13 @@ namespace IOPSApi.Migrations
                         .WithMany("Inscriptions")
                         .HasForeignKey("CountryID")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("IOPSApi.Models.Messages", b =>
+                {
+                    b.HasOne("IOPSApi.Models.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryID");
                 });
         }
     }
