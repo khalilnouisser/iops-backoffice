@@ -25,6 +25,5 @@ namespace IOPSApi.Models
 
 		public DateTime? DateMessage { get; set; }
 		public string CountryID { get; set; }  
-        public Country Country { get; set; }
 	}  
 }
