@@ -56,8 +56,8 @@ namespace IOPSApi.Controllers
 
         public async Task<IActionResult> Upload(IFormFile file,Inscription userInscri)
 		{
-            //string PathUpload = _environment.WebRootPath + "/../../../images/users/";
-            string PathUpload = _environment.WebRootPath + "../../tops/images/users/";
+            //string PathUpload = _environment.WebRootPath + "/../../../images/users/"; I REMOVED THIS [RAFAA]
+            string PathUpload = _environment.WebRootPath + "../../TOPS/images/users/";
 			dynamic response = new ExpandoObject();
             if (ModelState.IsValid && file != null && file.Length!=0)
             {
