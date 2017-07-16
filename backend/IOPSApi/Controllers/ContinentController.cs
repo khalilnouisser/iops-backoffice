@@ -26,12 +26,71 @@ namespace IOPSApi.Controllers
 			this._modelS = modelS;
         }
 
-        [HttpPost]
+        [HttpDelete("{ContinentName}")]
+        public async Task Delete(string ContinentName)
+        {
+			dynamic response = new ExpandoObject();
+            Continent c = await _context.Continent.Where(k => k.ContinentID == ContinentName).FirstOrDefaultAsync();
+            if(c!=null){
+                _context.Continent.Remove(c);
+                await _context.SaveChangesAsync();
+			}           
+        }
+
+
+        [HttpPut("{LastContinentName}")]
+        public async Task<IActionResult> Update([FromBody]Continent Continent, string LastContinentName)
+		{
+            
+			dynamic response = new ExpandoObject();
+            Continent c = await _context.Continent.Where(k => k.ContinentID == Continent.ContinentID).FirstOrDefaultAsync();
+			if (c != null)
+			{
+				response.status = 0;
+				response.extra = new ExpandoObject();
+				response.extra.errorMessage = "Continent "+Continent.ContinentID +" exsist";
+                response.extra.ContinentName = Continent.ContinentID;
+				response.extra.LastContinentName = LastContinentName;
+
+				return Ok(response);
+			} 
+
+            else {
+				Continent c2 = await _context.Continent.Where(k => k.ContinentID == LastContinentName).Include(k => k.countries).FirstOrDefaultAsync();
+				if (c2 == null)
+				{
+					response.status = 0;
+					response.extra = new ExpandoObject();
+					response.extra.errorMessage = "Continent "+LastContinentName+" doesn't exist";
+					response.extra.ContinentName = Continent.ContinentID;
+					response.extra.LastContinentName = LastContinentName;
+					return Ok(response);
+				}
+                else {
+                    foreach(var country in c2.countries){
+                        country.ContinentID = Continent.ContinentID;
+                    }
+                    await _context.Continent.AddAsync(Continent);
+                    await _context.SaveChangesAsync();
+					_context.Continent.Remove(c2);
+					await _context.SaveChangesAsync();
+
+					response.status = 1;
+					response.extra = new ExpandoObject();
+                    response.extra.Continent = c;
+					return Ok(response);
+				}
+			}
+		}
+
+
+		[HttpPost]
         public async Task<IActionResult> Create([FromBody]Continent continent){
 			dynamic response = new ExpandoObject();
 			if (ModelState.IsValid)
 			{
 				response.status = 1;
+				response.extra = new ExpandoObject();
 				try
 				{
 					await _context.Continent.AddAsync(continent);
@@ -40,10 +99,9 @@ namespace IOPSApi.Controllers
 				catch (Exception)
 				{
 					response.status = 0;
-					response.extra.message = "Continent exsist";
-					return BadRequest(response);
+					response.extra.errorMessage = "Continent exsist";
+					return Ok(response);
 				}
-				response.extra = new ExpandoObject();
 				response.extra.continent = continent;
 
 				return Ok(response);
