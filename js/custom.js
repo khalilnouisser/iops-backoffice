@@ -94,9 +94,11 @@
                 }
             });
             if(!error_code){
+                $('.form-blocker').fadeIn(500);
                 $.post('components/sendContact.php' ,{'email':email,'name':name,'message':message}, function (data, status) {
                     if (!ajaxError) {
                         if (data.status) {
+                            $('.form-blocker').fadeOut(500);
                             swal({
                                 title: 'Success',
                                 text: 'Thank you for your message !',
@@ -108,6 +110,7 @@
                             $('#message-contact').val("");
                         }
                         else {
+                            $('.form-blocker').fadeOut(500);
                             swal({
                                 title: 'Error!',
                                 text: data.error_message,
@@ -118,6 +121,7 @@
                     }
                     else
                     {
+                        $('.form-blocker').fadeOut(500);
                         swal({
                             title: 'Error!',
                             text: 'Sorry we couldn\'t send your message <br>Server error',

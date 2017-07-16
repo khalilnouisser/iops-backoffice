@@ -86,7 +86,7 @@
             var name = $('#name-contact').val();
             var email = $('#email-contact').val();
             var message = $('#message-contact').val();
-            var error_code = verifyContact(name,email,message);
+            var error_code = verifyContact(name, email, message);
             var ajaxError = false;
             $.ajaxSetup({
                 error: function (xhr, status, error) {
@@ -94,10 +94,16 @@
                     ajaxError = true;
                 }
             });
-            if(!error_code){
-                $.post('components/sendContact.php' ,{'email':email,'name':name,'message':message}, function (data, status) {
+            if (!error_code) {
+                $('.form-blocker').fadeIn(500);
+                $.post('components/sendContact.php', {
+                    'email': email,
+                    'name': name,
+                    'message': message
+                }, function (data, status) {
                     if (!ajaxError) {
                         if (data.status) {
+                            $('.form-blocker').fadeOut(500);
                             swal({
                                 title: 'Success',
                                 text: 'Thank you for your message !',
@@ -109,6 +115,7 @@
                             $('#message-contact').val("");
                         }
                         else {
+                            $('.form-blocker').fadeOut(500);
                             swal({
                                 title: 'Error!',
                                 text: data.error_message,
@@ -117,11 +124,11 @@
                             })
                         }
                     }
-                    else
-                    {
+                    else {
+                        $('.form-blocker').fadeOut(500);
                         swal({
                             title: 'Error!',
-                            text: 'Sorry we couldn\'t send your message <br>Server error',
+                            text: 'Sorry we couldn\'t send your message ! Server error',
                             type: 'error',
                             confirmButtonText: 'Cool'
                         })
@@ -132,109 +139,40 @@
 
             event.preventDefault();
         });
-        function verifyContact(name,email,message)
-        {
+        function verifyContact(name, email, message) {
 
             var err_name = $('#err-name-contact');
             var err_email = $('#err-email-contact');
             var err_message = $('#err-message-contact');
-            var error_code=0;
+            var error_code = 0;
             if (!name) {
                 error_code++;
                 err_name.show();
-            }else {
+            } else {
                 err_name.hide();
             }
-            if (!email||!isValidEmailAddress(email)) {
+            if (!email || !isValidEmailAddress(email)) {
                 error_code++;
                 err_email.show();
-            }else {
+            } else {
                 err_email.hide();
             }
-            if (!message || message.length<10) {
+            if (!message || message.length < 10) {
                 error_code++;
                 err_message.show();
-            }else {
+            } else {
                 err_message.hide();
             }
 
             return error_code;
         }
+
         /*********** SUBSCRIPTION VALIDATION *************/
 
-        $('#password1').keyup(function (event) {
-            var err_pwd1 = $("#err-password1");
-            if ($('#password1').val().length < 8) {
-                err_pwd1.show();
-            }
-            else {
-                err_pwd1.hide();
-                var err_pwd2 = $("#err-password2");
-                if ($('#password2').val() != $('#password1').val()) {
-                    err_pwd2.show();
-                }
-                else {
-                    err_pwd2.hide();
-                }
-            }
-        });
-        $('#password2').keyup(function (event) {
-            var err_pwd2 = $("#err-password2");
-            if ($('#password2').val() != $('#password1').val()) {
-                err_pwd2.show();
-            }
-            else {
-                err_pwd2.hide();
-            }
-        });
 
         $('#send-subscription').click(function (event) {
-            var error_code = verifySubscribe();
 
-
-            if (!error_code) {
-                var hash = $('#g-recaptcha-response').val();
-                console.log(hash);
-                console.log("no error");
-                var ajaxError = false;
-                $.ajaxSetup({
-                    error: function (xhr, status, error) {
-                        //alert("An AJAX error occured: " + status + "\nError: " + error);
-                        ajaxError = true;
-                    }
-                });
-                $.get('components/verifyRecaptcha.php?secret=' + hash, function (data, status) {
-                    if (!ajaxError) {
-                        if (JSON.parse(data).status) {
-                            console.log("ok !");
-                            $('#ajax-form').submit();
-                        }
-                        else {
-                            console.log(JSON.parse(data).errors);
-                            swal({
-                                title: 'Error!',
-                                text: 'couldn\'t verify you\'re a human, Sorry!',
-                                type: 'error',
-                                confirmButtonText: 'Cool'
-                            })
-                        }
-                    }
-                    else
-                    {
-                        swal({
-                            title: 'Error!',
-                            text: 'couldn\'t verify you\'re a human, Sorry!',
-                            type: 'error',
-                            confirmButtonText: 'Cool'
-                        })
-                    }
-
-                });
-            }
-            else {
-                console.log("error");
-            }
-
+            verifySubscribe();
             event.preventDefault();
 
         });
@@ -244,8 +182,8 @@
             var lname = $("#lname").val();
             var uname = $("#uname").val();
             var email = $("#email").val();
-            var pwd1 = $("#password1").val();
-            var pwd2 = $("#password2").val();
+            /*var pwd1 = $("#password1").val();
+             var pwd2 = $("#password2").val();*/
             var birthday = $("#birthday").val();
             var institut = $("#institut").val();
             var pic = $("#pic").val();
@@ -254,8 +192,8 @@
             var err_lname = $("#err-lname");
             var err_uname = $("#err-uname");
             var err_email = $("#err-email");
-            var err_pwd1 = $("#err-password1");
-            var err_pwd2 = $("#err-password2");
+            /*var err_pwd1 = $("#err-password1");
+             var err_pwd2 = $("#err-password2");*/
             var err_birthday = $("#err-birthday");
             var err_institut = $("#err-institut");
             var err_pic = $("#err-pic");
@@ -294,22 +232,6 @@
                 err_email.hide();
             }
 
-            if (pwd1.length < 8) {
-                error_code++;
-                err_pwd1.show();
-            }
-            else {
-                err_pwd1.hide();
-            }
-
-            if (pwd1 != pwd2) {
-                error_code++;
-                err_pwd2.show();
-            }
-            else {
-                err_pwd2.hide();
-            }
-
             if (!birthday || (new Date(birthday)).getFullYear() < 1900 || (new Date(birthday)).getFullYear() > 2017) {
                 error_code++;
                 err_birthday.show();
@@ -334,7 +256,11 @@
                 err_pic.hide();
             }
 
-
+            if (!error_code) {
+                $('.form-blocker').fadeIn(500);
+                userEmailExists(email, uname, $("#country-id").val());
+            }
+            //console.log("error code : " + error_code);
             return error_code;
         }
 
@@ -342,6 +268,99 @@
             var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
             return pattern.test(emailAddress);
         };
+        function userEmailExists(email, username, countryID) {
+            //console.log(email, username, countryID);
+            var ajaxError = false;
+            $.ajaxSetup({
+                error: function (xhr, status, error) {
+                    //alert("An AJAX error occured: " + status + "\nError: " + error);
+                    ajaxError = true;
+                }
+            });
+
+            $.post('components/userEmailExists.php', {
+                'EmailAdress': email,
+                'Username': username,
+                'CountryID': countryID
+            }, function (data, status) {
+                if (!ajaxError) {
+                    if (data.status) {
+                        if (data.response) {
+                            console.log("Valid email & username");
+                            verifyRecaptcha();
+                            return 0;
+                        }
+                        else {
+                            swal({
+                                title: 'Error!',
+                                text: 'Email or Username already exists',
+                                type: 'error',
+                                confirmButtonText: 'ok'
+                            })
+                            $('.form-blocker').fadeOut(500);
+                        }
+
+                    }
+                    else {
+                        $('.form-blocker').fadeOut(500);
+                    }
+                }
+                else{
+                    swal({
+                        title: 'Error!',
+                        text: 'SERVER ERROR!',
+                        type: 'error',
+                        confirmButtonText: 'Cool'
+                    })
+                    $('.form-blocker').fadeOut(500);
+                }
+
+
+
+            });
+        };
+
+        function verifyRecaptcha() {
+            var ajaxError = false;
+            $.ajaxSetup({
+                error: function (xhr, status, error) {
+                    //alert("An AJAX error occured: " + status + "\nError: " + error);
+                    ajaxError = true;
+                }
+            });
+            var hash = $('#g-recaptcha-response').val();
+            //console.log("verifying robot");
+            $.get('components/verifyRecaptcha.php?secret=' + hash, function (data, status) {
+                if (!ajaxError) {
+                    if (JSON.parse(data).status) {
+                        //console.log("ok !");
+                        $('#ajax-form').attr('action', 'components/sendSubscription.php').submit();
+
+
+                    }
+                    else {
+                        console.log(JSON.parse(data).errors);
+                        swal({
+                            title: 'Error!',
+                            text: 'couldn\'t verify you\'re a human, Sorry!',
+                            type: 'error',
+                            confirmButtonText: 'Cool'
+                        })
+                        $('.form-blocker').fadeOut(500);
+                    }
+                }
+                else {
+                    swal({
+                        title: 'Error!',
+                        text: 'couldn\'t verify you\'re a human, Sorry!',
+                        type: 'error',
+                        confirmButtonText: 'Cool'
+                    })
+                    $('.form-blocker').fadeOut(500);
+                }
+
+            });
+        }
 
         (function ($) {
 
