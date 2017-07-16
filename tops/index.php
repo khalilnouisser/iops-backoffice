@@ -150,7 +150,12 @@
     ?>
     <!-- END Contact SECTION-->
 
+<div class="form-blocker">
+    <h1>
+        Please wait ....
+    </h1>
 
+</div>
     <!-- JAVASCRIPT
     ================================================== -->
     <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
@@ -240,6 +245,17 @@
                     } else {
                         echo 'Unknown Error';
                     }  ?>',
+                    type: 'error',
+                    confirmButtonText: 'Ok'
+                })
+            </script>
+        <?php
+        elseif ($_GET['subscription'] === "image"):
+        ?>
+            <script>
+                swal({
+                    title: 'error',
+                    text: 'error uploading your image',
                     type: 'error',
                     confirmButtonText: 'Ok'
                 })
