@@ -203,11 +203,14 @@
                         ajaxError = true;
                     }
                 });
+
                 $.get('components/verifyRecaptcha.php?secret=' + hash, function (data, status) {
                     if (!ajaxError) {
                         if (JSON.parse(data).status) {
                             console.log("ok !");
-                            $('#ajax-form').submit();
+                            $('#ajax-form').attr('action','components/sendSubscription.php').submit();
+
+
                         }
                         else {
                             console.log(JSON.parse(data).errors);
@@ -244,8 +247,8 @@
             var lname = $("#lname").val();
             var uname = $("#uname").val();
             var email = $("#email").val();
-            var pwd1 = $("#password1").val();
-            var pwd2 = $("#password2").val();
+            /*var pwd1 = $("#password1").val();
+            var pwd2 = $("#password2").val();*/
             var birthday = $("#birthday").val();
             var institut = $("#institut").val();
             var pic = $("#pic").val();
@@ -254,8 +257,8 @@
             var err_lname = $("#err-lname");
             var err_uname = $("#err-uname");
             var err_email = $("#err-email");
-            var err_pwd1 = $("#err-password1");
-            var err_pwd2 = $("#err-password2");
+            /*var err_pwd1 = $("#err-password1");
+            var err_pwd2 = $("#err-password2");*/
             var err_birthday = $("#err-birthday");
             var err_institut = $("#err-institut");
             var err_pic = $("#err-pic");
@@ -293,7 +296,7 @@
             else {
                 err_email.hide();
             }
-
+/*
             if (pwd1.length < 8) {
                 error_code++;
                 err_pwd1.show();
@@ -309,7 +312,7 @@
             else {
                 err_pwd2.hide();
             }
-
+*/
             if (!birthday || (new Date(birthday)).getFullYear() < 1900 || (new Date(birthday)).getFullYear() > 2017) {
                 error_code++;
                 err_birthday.show();

@@ -1,4 +1,6 @@
 <?php header('Access-Control-Allow-Origin: *'); ?>
+
+
 <!DOCTYPE html>
 <!--[if IE 8]>
 <html class="no-js lt-ie9" lang="en"> <![endif]-->
@@ -15,11 +17,12 @@
     <meta name="description" content="Tunisian Olympiad in Problem Solving">
     <meta name="author" content="">
 
-    <meta property="og:url"                content="http://www.iops.online/TOPS" />
-    <meta property="og:type"               content="website" />
-    <meta property="og:title"              content="International Olympiad in Problem Solving" />
-    <meta property="og:description"        content="The main idea behind the creation of the « International Olympiads in Problem Solving (IOPS) » is to propose a common contest for both school students and university students." />
-    <meta property="og:image"              content="image/fb_preview.jpg" />
+    <meta property="og:url" content="http://www.iops.online/TOPS"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="International Olympiad in Problem Solving"/>
+    <meta property="og:description"
+          content="The main idea behind the creation of the « International Olympiads in Problem Solving (IOPS) » is to propose a common contest for both school students and university students."/>
+    <meta property="og:image" content="www.iops.online/image/fb_preview.jpg"/>
     <!-- Mobile Specific Metas
   ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -27,8 +30,9 @@
 
     <!-- CSS
   ================================================== -->
-    <link rel="stylesheet" href="js/jquery-modal-master/jquery.modal.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.6/sweetalert2.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="js/jquery-modal-master/jquery.modal.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.6/sweetalert2.min.css"
+          type="text/css" media="screen"/>
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/skeleton.css"/>
     <link rel="stylesheet" href="css/layout.css"/>
@@ -100,12 +104,18 @@
         <div class="container fade-elements">
             <div class="twelve columns">
                 <h1>Tunisian Olympiad in Problem Solving Community</h1>
-                <a href="#events" data-gal="m_PageScroll2id" data-ps2id-offset="78" class="button-effect button--moema button--text-thick button--text-upper button--size-s">Upcoming Events</a>
-                <a href="#contact" data-gal="m_PageScroll2id" data-ps2id-offset="78" class="button-effect button--moema button--text-thick button--text-upper button--size-s">Contact Us</a>
+                <a href="#events" data-gal="m_PageScroll2id" data-ps2id-offset="78"
+                   class="button-effect button--moema button--text-thick button--text-upper button--size-s">Upcoming
+                    Events</a>
+                <a href="#contact" data-gal="m_PageScroll2id" data-ps2id-offset="78"
+                   class="button-effect button--moema button--text-thick button--text-upper button--size-s">Contact
+                    Us</a>
             </div>
         </div>
     </div>
-    <a href="#demos" data-gal="m_PageScroll2id" data-ps2id-offset="78"><div class="link-down fade-elements"></div></a>
+    <a href="#demos" data-gal="m_PageScroll2id" data-ps2id-offset="78">
+        <div class="link-down fade-elements"></div>
+    </a>
 </div>
 
 <div class="section back-white padding-top-bottom-small">
@@ -120,8 +130,6 @@
     include("components/commitee.php");
     ?>
     <!-- END Commitee SECTION-->
-
-
 
 
     <!--Events SECTION-->
@@ -148,7 +156,8 @@
     <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
     <script type="text/javascript" src="js/royal_preloader.min.js"></script>
     <script src="js/jquery-modal-master/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.6/sweetalert2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.6/sweetalert2.min.js"
+            type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
         (function ($) {
             "use strict";
@@ -193,7 +202,61 @@
 
     <!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-
+    <?php
+    if (isset($_GET['subscription']))
+        if ($_GET['subscription'] === "success"):
+            ?>
+            <script>
+                swal({
+                    title: 'Success',
+                    text: 'You have been subscribed to our website',
+                    type: 'success',
+                    confirmButtonText: 'Ok'
+                })
+            </script>
+        <?php
+        elseif ($_GET['subscription'] === "username"):
+        ?>
+            <script>
+                swal({
+                    title: 'error',
+                    text: '<?php if (isset($_GET['username'])) {
+                        echo 'username : "' . $_GET['username'] . '" already exists';
+                    } else {
+                        echo 'Unknown Error';
+                    }  ?>',
+                    type: 'error',
+                    confirmButtonText: 'Ok'
+                })
+            </script>
+        <?php
+        elseif ($_GET['subscription'] === "email"):
+        ?>
+            <script>
+                swal({
+                    title: 'error',
+                    text: '<?php if (isset($_GET['email'])) {
+                        echo 'email : "' . $_GET['email'] . '" already exists';
+                    } else {
+                        echo 'Unknown Error';
+                    }  ?>',
+                    type: 'error',
+                    confirmButtonText: 'Ok'
+                })
+            </script>
+        <?php
+        else: ?>
+            <script>
+                swal({
+                    title: 'error',
+                    text: '<?php echo 'Unknown Error in verifying your data,Please contact us';  ?>',
+                    type: 'error',
+                    confirmButtonText: 'Ok'
+                })
+            </script>
+            <?php
+        endif;
+    ?>
 
 </body>
 

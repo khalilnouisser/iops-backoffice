@@ -10,62 +10,62 @@
         <div class="section padding-bottom">
             <div class="container">
                 <form name="ajax-form" id="ajax-form" action=""
-                      method="post">
-
+                      method="post" enctype="multipart/form-data">
+                <input type="hidden" name="CountryID" value="tn"/>
                     <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="fname">
                             <span class="error" id="err-fname">please enter first name</span>
                         </label>
-                        <input name="fname" id="fname" type="text" placeholder="Your First Name :*" required/>
+                        <input name="Fname" id="fname" type="text" placeholder="Your First Name :*" required/>
                     </div>
 
                     <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="lname">
                             <span class="error" id="err-lname">please enter last name</span>
                         </label>
-                        <input name="lname" id="lname" type="text" placeholder="Your Last Name :*" required/>
+                        <input name="Lname" id="lname" type="text" placeholder="Your Last Name :*" required/>
                     </div>
 
                     <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="uname">
                             <span class="error" id="err-uname">please enter username</span>
                         </label>
-                        <input name="uname" id="uname" type="text" placeholder="Username :*" required/>
+                        <input name="Username" id="uname" type="text" placeholder="Username :*" required/>
                     </div>
 
                     <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="email">
                             <span class="error" id="err-email">please enter valid email</span>
                         </label>
-                        <input name="email" id="email" type="email" placeholder="Email :*" required/>
+                        <input name="EmailAdress" id="email" type="email" placeholder="Email :*" required/>
                     </div>
-
+<!--
                     <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="email">
                             <span class="error" id="err-password1">please enter a valid password (+8 characters)</span>
                         </label>
-                        <input name="password1" id="password1" type="password" placeholder="Password (+8 characters)" required/>
+                        <input name="Password1" id="password1" type="password" placeholder="Password (+8 characters)" required/>
                     </div>
 
                     <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="email">
                             <span class="error" id="err-password2">passwords don't match</span>
                         </label>
-                        <input name="password2" id="password2" type="password" placeholder="Retype your password" required/>
+                        <input name="Password2" id="password2" type="password" placeholder="Retype your password" required/>
                     </div>
-
+-->
                     <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="birthday">
                             <span class="error" id="err-birthday">your date is invalid</span>
                         </label>
-                        <input name="birthday" id="birthday" type="date" placeholder="Birthday" required/>
+                        <input name="BirthdayDate" id="birthday" type="date" placeholder="Birthday" required/>
                     </div>
 
                     <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="institut">
                             <span class="error" id="err-institut">please enter a valid institution name</span>
                         </label>
-                        <input name="institut" id="institut" type="text" placeholder="Where are you studying ?" required/>
+                        <input name="University" id="institut" type="text" placeholder="Where are you studying ?" required/>
                     </div>
                     <br>
                     <br>
@@ -75,7 +75,7 @@
                             <span class="error" id="err-pic">your file is invalid</span>
                         </label>
                         <span>Please upload a proof of identity<br>(student card) [max 8MB]</span>
-                        <input name="pic" id="pic" type="file" placeholder="" accept="image/*" required/>
+                        <input name="file" id="pic" type="file" placeholder="" accept="image/*" required/>
                     </div>
 
                     <div class="six columns recaptcha" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
