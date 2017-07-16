@@ -1,7 +1,7 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/Users/khalilnouisser/.nuget/packages"
+      "C:\\Users\\rafaa\\.nuget\\packages"
     ]
   }
 }
