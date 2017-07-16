@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{2C494D0C-020C-46F7-9B55-C2789BB4F456}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="IOPSApi/Models/News.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="IOPSApi/Controllers/NewsController.cs">
     <Files>
-      <File FileName="IOPSApi/Controllers/ContinentController.cs" Line="72" Column="22" />
+      <File FileName="IOPSApi/Controllers/ContinentController.cs" Line="29" Column="9" />
       <File FileName="IOPSApi/Models/Continent.cs" Line="9" Column="21" />
       <File FileName="IOPSApi/Controllers/MessageController.cs" Line="114" Column="28" />
       <File FileName="IOPSApi/Data/MysqlDBContext.cs" Line="8" Column="1" />
-      <File FileName="IOPSApi/Models/News.cs" Line="13" Column="27" />
+      <File FileName="IOPSApi/Controllers/NewsController.cs" Line="106" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

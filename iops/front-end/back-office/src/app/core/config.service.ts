@@ -7,10 +7,10 @@ export class ConfigService {
 
   public SiteName = "IOPS Backoffice";
   public headerLink = "http://localhost:4200/";
+  public siteLink = "http://localhost/iops-tops/";
   public headerLogoImg = "/assets/img/logo_iops.png";
   public backgroundColor = "#212121";
   public backgroundImg = "/assets/img/parallax-1.jpg";
   public urlServerApi = "http://localhost:5000";
   public CountryID = ""; // "" = IOPS
-
 }

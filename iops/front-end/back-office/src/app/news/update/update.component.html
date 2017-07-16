@@ -1,0 +1,52 @@
+<div class="col-md-12" [@cardtable1] style="margin: 30px 0;">
+
+  <div class="card"  >
+    <div class="header">
+      <h4 class="title pull-left">Update news : {{OriginalContinentName}}</h4>
+      <button (click)="router.navigate(['/news'])" class="btn pull-right">Cancel</button>
+    </div>
+
+    <div class="content ">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group ">
+            <label>news title</label>
+            <input [(ngModel)]="Title" type="text" class="form-control"  placeholder="news title">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group ">
+            <label>news text</label>
+            <textarea [(ngModel)]="Text" type="text" class="form-control" ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group ">
+            <label>news image</label><br>
+            <img style="max-width: 210px;max-height: 200px;" [src]="this.config.siteLink+'images/news/'+PhotoURL" >
+            <image-upload
+              [max]="1"
+              [url]="config.urlServerApi+'/api/Upload/news'"
+              [buttonCaption]="'Parcourir ...'"
+              (onFileUploadFinish)="imageUploaded($event)">
+            </image-upload>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <button (click)="doUpdate()" class="btn">Submit</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

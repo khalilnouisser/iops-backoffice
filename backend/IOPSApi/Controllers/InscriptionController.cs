@@ -31,9 +31,9 @@ namespace IOPSApi.Controllers
             _context = context;
             _modelS = modelS;
 		}
-
+        /*
         [HttpPost]
-        /*public async Task<IActionResult> Index(IList<IFormFile> files)
+        public async Task<IActionResult> Index(IList<IFormFile> files)
         {
 			long size = 0;
 			foreach (var file in files)
@@ -53,7 +53,7 @@ namespace IOPSApi.Controllers
             string Message = $"{files.Count} file(s) /  { size} bytes uploaded successfully!";
             return Ok(Message);
         }*/
-
+        /*
         public async Task<IActionResult> Upload(IFormFile file,Inscription userInscri)
 		{
             //string PathUpload = _environment.WebRootPath + "/../../../images/users/"; I REMOVED THIS [RAFAA]
@@ -131,6 +131,7 @@ namespace IOPSApi.Controllers
             }
 
 
-		}
+
+		}*/
     }
 }

@@ -23,6 +23,9 @@ import {WebService} from "./core/web.service";
 import {ContinentsModule} from "./continents/continents.module";
 import { MessagesComponent } from './messages/messages.component';
 import {DateService} from "./core/date.service";
+import { NewsComponent } from './news/news.component';
+import {NewsModule} from "./news/news.module";
+import {GeneralService} from "./core/general.service";
 const appRoutes: Routes = [
   { path: 'maps', component: MapsComponent },
   {
@@ -62,9 +65,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyAEPDOJl5CPLz6NZcMqJBqZWfVXec3UsJg' }),
     LbdModule,
-    ContinentsModule
+    ContinentsModule,
+    NewsModule
   ],
-  providers: [AuthService,ConfigService,WebService,DateService],
+  providers: [AuthService,ConfigService,WebService,DateService,GeneralService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

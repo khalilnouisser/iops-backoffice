@@ -49,12 +49,12 @@ namespace IOPSApi.Controllers
 		} 
 
         [HttpGet]
-		public async Task<IActionResult> GetAll()
+		public async Task<IActionResult> GetLimited()
 		{
 			dynamic response = new ExpandoObject();
 				response.status = 1;
 				response.extra = new ExpandoObject();
-                List<News> listN = await _context.News.ToListAsync();
+                List<News> listN = await _context.News.OrderByDescending(k => k.DatePub).ToListAsync();
             if(listN.Count()<4){
 				response.extra.news = listN;
 
@@ -64,7 +64,83 @@ namespace IOPSApi.Controllers
 
 			}
 				return Ok(response);
-		
+		}
+
+        [HttpGet("all")]
+		public async Task<IActionResult> GetAll()
+		{
+			dynamic response = new ExpandoObject();
+			response.status = 1;
+			response.extra = new ExpandoObject();
+            List<News> listN = await _context.News.OrderByDescending(k=>k.DatePub).ToListAsync();
+			response.extra.news = listN;
+			return Ok(response);
+		}
+
+        [HttpGet("{NewsId}")]
+		public async Task<IActionResult> GetNews(int NewsId)
+		{
+            Console.WriteLine("NewsId : "+NewsId);
+			dynamic response = new ExpandoObject();
+			News c = await _context.News.Where(k => k.NewsID == NewsId).FirstOrDefaultAsync();
+			if (c != null) {
+				response.status = 1;
+				response.extra = new ExpandoObject();
+                response.extra.news = c;
+
+			}
+            else {
+				response.status = 0;
+				response.extra = new ExpandoObject();
+                response.extra.NewsId = NewsId;
+				response.extra.errorMessage = "news not found";
+
+			}
+            return Ok(response);
+		}
+
+        [HttpPut("{NewsId}")]
+        public async Task<IActionResult> updateNews(int NewsId,[FromBody] News news)
+		{
+			Console.WriteLine("NewsId : " + NewsId);
+			dynamic response = new ExpandoObject();
+			News c = await _context.News.Where(k => k.NewsID == NewsId).FirstOrDefaultAsync();
+            if (c != null && ModelState.IsValid)
+			{
+                c.PhotoURL = news.PhotoURL;
+                c.Text = news.Text;
+                c.Title = news.Title;
+                this._context.Update(c);
+                await this._context.SaveChangesAsync();
+				response.status = 1;
+				response.extra = new ExpandoObject();
+				response.extra.news = c;
+			}
+			else
+			{
+				response.status = 0;
+				response.extra = new ExpandoObject();
+				response.extra.NewsId = NewsId;
+                response.extra.errorMessage = "";
+                if(!ModelState.IsValid){
+                    response.extra.errorMessage += _modelS.GetErrorMessage(ModelState);
+				}
+                if (c == null)
+				response.extra.errorMessage += " news not found";
+			}
+			return Ok(response);
+		}
+
+		[HttpDelete("{NewsId}")]
+		public async Task Delete(int NewsId)
+		{
+			dynamic response = new ExpandoObject();
+            News c = await _context.News.Where(k => k.NewsID == NewsId).FirstOrDefaultAsync();
+			if (c != null)
+			{
+                _context.News.Remove(c);
+				await _context.SaveChangesAsync();
+			}
 		}
 
 	}

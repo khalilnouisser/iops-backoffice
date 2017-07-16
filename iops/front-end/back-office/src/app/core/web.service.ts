@@ -4,6 +4,7 @@ import 'rxjs/';
 import {Admin} from "../shared/Admin";
 import {ConfigService} from "./config.service";
 import {Observable} from "rxjs/Observable";
+import {Title} from "@angular/platform-browser";
 
 @Injectable()
 export class WebService {
@@ -78,5 +79,53 @@ export class WebService {
       .then(this.extractData)
       .catch(this.handleError);
   }
+
+  /*
+    News
+   */
+
+  getListNews(){
+    return this.http.get(this.config.urlServerApi+"/api/news/all",{headers:this.headers})
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
+
+  addNews(Title,Text,PhotoURL){
+    let body = {
+      Title:Title,
+      Text:Text,
+      PhotoURL:PhotoURL
+    };
+    return this.http.post(this.config.urlServerApi+"/api/News/",JSON.stringify(body),{headers:this.headers})
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
+
+  removeNews(NewsId){
+    this.http.delete(this.config.urlServerApi+"/api/news/"+NewsId,{headers:this.headers})
+      .toPromise();
+  }
+
+  getNews(id){
+    return this.http.get(this.config.urlServerApi+"/api/news/"+id,{headers:this.headers})
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
+
+  updateNews(id,newTitle,newText,newPhotoURL){
+    let body = {
+      Title:newTitle,
+      Text:newText,
+      PhotoURL:newPhotoURL
+    };
+    return this.http.put(this.config.urlServerApi+"/api/news/"+id,JSON.stringify(body),{headers:this.headers})
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
+
 }
 
