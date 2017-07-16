@@ -161,7 +161,12 @@
     ?>
     <!-- END Contact SECTION-->
 
+    <div class="form-blocker">
+        <h1>
+            Please wait ....
+        </h1>
 
+    </div>
     <!-- JAVASCRIPT
     ================================================== -->
     <script type="text/javascript" src="js/jquery-2.1.1.js"></script>

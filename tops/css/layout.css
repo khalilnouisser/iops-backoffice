@@ -1365,16 +1365,18 @@ svg * {
 
 /* #Team
 ================================================== */
-.commitee-box
-{
+.commitee-box {
     padding: 5px;
 }
+
 .commitee-box:nth-child(odd) {
     background: #fafafa;
 }
+
 .commitee-box:nth-child(even) {
     background: #fff;
 }
+
 .team-wrap {
     position: relative;
     width: 100%;
@@ -1399,16 +1401,17 @@ svg * {
     -ms-transition: all 300ms linear;
     transition: all 300ms linear;
 }
-.team-wrap .poste
-{
+
+.team-wrap .poste {
     height: 60px;
     font-size: 14px;
     font-weight: bold;
 }
-.team-wrap p
-{
+
+.team-wrap p {
     height: 180px;
 }
+
 .team-wrap .img {
 
     width: 100%;
@@ -1433,14 +1436,14 @@ svg * {
     .team-wrap .img {
         height: 200px;
     }
-    .team-wrap .poste
-    {
+
+    .team-wrap .poste {
         height: 70px;
         font-size: 14px;
         font-weight: bold;
     }
-    .team-wrap p
-    {
+
+    .team-wrap p {
         height: 280px;
     }
 }
@@ -3801,14 +3804,14 @@ animated buttons - animate the text inside prev and next buttons
     margin: 0 auto;
 }
 
-#ajax-form label,#ajax-form-contact label  {
+#ajax-form label, #ajax-form-contact label {
     display: block;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     line-height: 30px;
 }
 
-#ajax-form input,#ajax-form-contact input{
+#ajax-form input, #ajax-form-contact input {
     position: relative;
     width: calc(100% - 40px);
     padding-left: 20px;
@@ -3826,7 +3829,7 @@ animated buttons - animate the text inside prev and next buttons
     transition: border-bottom 0.3s, color 0.3s;
 }
 
-#ajax-form textarea,#ajax-form-contact textarea {
+#ajax-form textarea, #ajax-form-contact textarea {
     width: calc(100% - 40px);
     padding-left: 20px;
     padding-right: 20px;
@@ -3844,7 +3847,7 @@ animated buttons - animate the text inside prev and next buttons
 }
 
 #ajax-form textarea,
-#ajax-form input,#ajax-form-contact textarea,#ajax-form-contact input {
+#ajax-form input, #ajax-form-contact textarea, #ajax-form-contact input {
     border-bottom: 1px solid rgba(100, 100, 100, .2);
 }
 
@@ -3875,80 +3878,80 @@ animated buttons - animate the text inside prev and next buttons
 }
 
 #ajax-form textarea:active,
-#ajax-form input:active,#ajax-form-contact textarea:active,
+#ajax-form input:active, #ajax-form-contact textarea:active,
 #ajax-form-contact input:active {
     color: #101010;
 }
 
 #ajax-form textarea:active,
-#ajax-form input:hover,#ajax-form-contact textarea:active,
+#ajax-form input:hover, #ajax-form-contact textarea:active,
 #ajax-form-contact input:hover {
     color: #101010;
 }
 
 #ajax-form textarea:focus,
-#ajax-form input:focus,#ajax-form-contact textarea:focus,
+#ajax-form input:focus, #ajax-form-contact textarea:focus,
 #ajax-form-contact input:focus {
     outline: none !important;
 }
 
-#ajax-form input:-ms-input-placeholder,#ajax-form-contact input:-ms-input-placeholder {
+#ajax-form input:-ms-input-placeholder, #ajax-form-contact input:-ms-input-placeholder {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #999999;
 }
 
-#ajax-form input::-moz-placeholder,#ajax-form-contact input::-moz-placeholder {
+#ajax-form input::-moz-placeholder, #ajax-form-contact input::-moz-placeholder {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #999999;
 }
 
-#ajax-form input:-moz-placeholder,#ajax-form-contact input:-moz-placeholder {
+#ajax-form input:-moz-placeholder, #ajax-form-contact input:-moz-placeholder {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #999999;
 }
 
-#ajax-form input::-webkit-input-placeholder,#ajax-form-contact input::-webkit-input-placeholder {
+#ajax-form input::-webkit-input-placeholder, #ajax-form-contact input::-webkit-input-placeholder {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #999999;
 }
 
-#ajax-form textarea:-ms-input-placeholder,#ajax-form-contact textarea:-ms-input-placeholder {
+#ajax-form textarea:-ms-input-placeholder, #ajax-form-contact textarea:-ms-input-placeholder {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #999999;
 }
 
-#ajax-form textarea::-moz-placeholder,#ajax-form-contact textarea::-moz-placeholder {
+#ajax-form textarea::-moz-placeholder, #ajax-form-contact textarea::-moz-placeholder {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #999999;
 }
 
-#ajax-form textarea:-moz-placeholder,#ajax-form-contact textarea:-moz-placeholder {
+#ajax-form textarea:-moz-placeholder, #ajax-form-contact textarea:-moz-placeholder {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #999999;
 }
 
-#ajax-form textarea::-webkit-input-placeholder,#ajax-form-contact textarea::-webkit-input-placeholder {
+#ajax-form textarea::-webkit-input-placeholder, #ajax-form-contact textarea::-webkit-input-placeholder {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #999999;
 }
 
-#ajax-form button,#ajax-form-contact button {
+#ajax-form button, #ajax-form-contact button {
     background: #323232;
     color: #fff;
     font-size: 13px;
@@ -3956,12 +3959,12 @@ animated buttons - animate the text inside prev and next buttons
     max-width: 150px;
 }
 
-#ajax-form button:hover,#ajax-form-contact button:hover {
+#ajax-form button:hover, #ajax-form-contact button:hover {
     color: #fff;
 }
 
 #ajax-form button:focus,
-#ajax-form button:active,#ajax-form-contact button:focus,
+#ajax-form button:active, #ajax-form-contact button:focus,
 #ajax-form-contact button:active {
     border: none;
     outline: none;
@@ -5320,39 +5323,62 @@ animated buttons - animate the text inside prev and next buttons
     transition: 0.5s;
 }
 
-#ajax-form .six
-{
+#ajax-form .six {
     height: 45px;
 }
- #subscription h1
- {
-     color: white;
- }
 
-#subscription input
-{
+#subscription h1 {
+    color: white;
+}
+
+#subscription input {
     color: #fff;
 }
-#subscription input:active ,#subscription input:hover
-{
+
+#subscription input:active, #subscription input:hover {
     color: #cf4444;
 }
-#subscription .picture-upload
-{
+
+#subscription .picture-upload {
 
 }
-#subscription .picture-upload input
-{
+
+#subscription .picture-upload input {
     width: 50%;
     float: right;
     margin-right: 40px;
 }
-#subscription .error
-{
+
+#subscription .error {
     color: #cf4444 !important;
 }
-#subscription .picture-upload span
-{
+
+#subscription .picture-upload span {
     font-size: 15px;
     color: white;
+}
+
+.form-blocker {
+    height: 100vh;
+    z-index: 700;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    display: none;
+}
+
+.form-blocker h1 {
+    color: white;
+    -webkit-transform: translateY(50%);
+    -moz-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    -o-transform: translateY(50%);
+    transform: translateY(50%);
+    position: absolute;
+    top: 0;
+    text-align: center;
+    width: 100%;
+    height: 100%;
 }

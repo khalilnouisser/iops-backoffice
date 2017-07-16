@@ -11,7 +11,7 @@
             <div class="container">
                 <form name="ajax-form" id="ajax-form" action=""
                       method="post" enctype="multipart/form-data">
-                <input type="hidden" name="CountryID" value="tn"/>
+                <input id="country-id" type="hidden" name="CountryID" value="tn"/>
                     <div class="six columns" data-scroll-reveal="enter bottom move 100px over 1s after 0.5s">
                         <label for="fname">
                             <span class="error" id="err-fname">please enter first name</span>
