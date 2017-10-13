@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private authService : AuthService) { }
 
   ngOnInit() {
+
   }
 
   doLogin(){
@@ -30,13 +31,13 @@ export class LoginComponent implements OnInit {
       console.log("here");
       this.authService.signIn(this.emailAdresse,this.password)
         .then(data=>{
-          if(data.status===1){
+          if(data.status==1){
             swal({
               title: 'Welcome!',
-              text: data.extra.admin.fname+" "+data.extra.admin.lname,
+              text: data.result.firstName+" "+data.result.lastName,
               type: 'success',
             });
-            this.authService.saveAdminConnected(data.extra.admin);
+            this.authService.saveAdminConnected(data.result);
           }
           else {
             swal({

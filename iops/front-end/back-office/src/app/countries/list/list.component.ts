@@ -39,28 +39,31 @@ import {ConfigService} from "../../core/config.service";
 export class ListComponent implements OnInit {
 
   constructor(private config: ConfigService,public router:Router,private change : ChangeDetectorRef,private ws:WebService,private navbarTitleService: NavbarTitleService) {
-    this.getListContinents();
   }
   public tableData: TableData = null;
 
 
   public ngOnInit() {
+    this.getListContinents();
   }
 
   getListContinents(){
-    this.ws.getListContinents()
+    this.ws.getListCountries()
       .then(data=>{
 
 
         let dataList = [];
         if(data.status===1){
-          data.list.forEach(continent=>{
+          data.list.forEach(country=>{
             let c = [];
-            c.push(continent.continentName);
+            c.push(country.flag);
+            c.push(country.countryName);
+            c.push(country.webSite);
+            c.push(country.continentID);
             let paysName = "";
-            for(let i=0;i<continent.pays.length;i++){
-              paysName+=continent.pays[i].countryName;
-              if(i<continent.pays.length-1) paysName+=" , ";
+            for(let i=0;i<country.regions.length;i++){
+              paysName+=country.regions[i].regionID;
+              if(i<country.regions.length-1) paysName+=" , ";
             }
 
             c.push(paysName);
@@ -70,7 +73,7 @@ export class ListComponent implements OnInit {
           });
 
           this.tableData = {
-            headerRow: ['Continent', 'Countries'],
+            headerRow: ['', 'Name' , 'web site' , 'continent' , 'Regions'],
             dataRows: dataList
           };
 

@@ -1,4 +1,3 @@
-
 import {
   Component, OnInit, trigger, state, style, transition, animate, ChangeDetectionStrategy,
   ChangeDetectorRef
@@ -9,6 +8,8 @@ import {TableData} from "../../lbd/lbd-table/lbd-table.component";
 import {Router} from "@angular/router";
 import swal from 'sweetalert2';
 import {ConfigService} from "../../core/config.service";
+import {GeneralService} from "../../core/general.service";
+import {DateService} from "../../core/date.service";
 
 @Component({
   selector: 'app-list',
@@ -38,39 +39,33 @@ import {ConfigService} from "../../core/config.service";
 })
 export class ListComponent implements OnInit {
 
-  constructor(private config: ConfigService,public router:Router,private change : ChangeDetectorRef,private ws:WebService,private navbarTitleService: NavbarTitleService) {
-    this.getListContinents();
+  constructor(private  dateService : DateService,private genralService: GeneralService,private config: ConfigService,public router:Router,private change : ChangeDetectorRef,private ws:WebService,private navbarTitleService: NavbarTitleService) {
   }
   public tableData: TableData = null;
 
 
   public ngOnInit() {
+    this.getListInstitutions();
   }
 
-  getListContinents(){
-    this.ws.getListContinents()
+  getListInstitutions(){
+    this.ws.getListInstitutions()
       .then(data=>{
-
-
         let dataList = [];
         if(data.status===1){
-          data.list.forEach(continent=>{
+          data.list.forEach(ins=>{
             let c = [];
-            c.push(continent.continentName);
-            let paysName = "";
-            for(let i=0;i<continent.pays.length;i++){
-              paysName+=continent.pays[i].countryName;
-              if(i<continent.pays.length-1) paysName+=" , ";
-            }
-
-            c.push(paysName);
-
-            console.log(c);
+            c.push(ins.name);
+            c.push(ins.regionID);
+            c.push(ins.adress);
+            c.push(ins.zipCode);
+            c.push(ins.students.length);
+            c.push(ins.discriminator);
             dataList.push(c);
           });
 
           this.tableData = {
-            headerRow: ['Continent', 'Countries'],
+            headerRow: ['name','region','adress','zipCode','nb subscribed students','type'],
             dataRows: dataList
           };
 
@@ -90,11 +85,11 @@ export class ListComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, delete it!'
     }).then(function () {
-      self.ws.removeContient(self.tableData.dataRows[index][0]);
+      self.ws.removeInstitution(self.tableData.dataRows[index][0]);
       self.tableData.dataRows.splice(index,1);
       swal(
         'Deleted!',
-        'Your Continent has been deleted.',
+        'Your Institution has been deleted.',
         'success'
       );
     });

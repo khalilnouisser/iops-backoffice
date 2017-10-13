@@ -26,6 +26,11 @@ import {DateService} from "./core/date.service";
 import { NewsComponent } from './news/news.component';
 import {NewsModule} from "./news/news.module";
 import {GeneralService} from "./core/general.service";
+import { AdminsComponent } from './admins/admins.component';
+import {CountriesModule} from "./countries/continents.module";
+import {ContestantsComponent} from "./contestants/contestants.component";
+import {InstitutionsRouting} from "./institutions/institutions.routing";
+import {InstitutionsModule} from "./institutions/institutions.module";
 const appRoutes: Routes = [
   { path: 'maps', component: MapsComponent },
   {
@@ -37,6 +42,8 @@ const appRoutes: Routes = [
       { path: 'table', component: TableComponent },
       { path: 'typography', component: TypographyComponent },
       { path: 'icons', component: IconsComponent },
+      { path: 'admins', component: AdminsComponent },
+      { path: 'contestants', component: ContestantsComponent },
       { path: 'notifications', component: NotificationsComponent },
       { path: '**', redirectTo: 'dashboard' }
     ]
@@ -56,6 +63,8 @@ const appRoutes: Routes = [
     NotificationsComponent,
     LoginComponent,
     MessagesComponent,
+    AdminsComponent,
+    ContestantsComponent
 
   ],
   imports: [
@@ -66,7 +75,9 @@ const appRoutes: Routes = [
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyAEPDOJl5CPLz6NZcMqJBqZWfVXec3UsJg' }),
     LbdModule,
     ContinentsModule,
-    NewsModule
+    CountriesModule,
+    NewsModule,
+    InstitutionsModule
   ],
   providers: [AuthService,ConfigService,WebService,DateService,GeneralService],
   bootstrap: [AppComponent]

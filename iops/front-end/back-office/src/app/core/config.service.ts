@@ -11,6 +11,7 @@ export class ConfigService {
   public headerLogoImg = "/assets/img/logo_iops.png";
   public backgroundColor = "#212121";
   public backgroundImg = "/assets/img/parallax-1.jpg";
-  public urlServerApi = "http://localhost:5000";
+  //public urlServerApi = "http://localhost:5000";
+  public urlServerApi = "http://iops.online:5001";
   public CountryID = ""; // "" = IOPS
 }
